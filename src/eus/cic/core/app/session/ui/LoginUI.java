@@ -1,4 +1,4 @@
-package eus.cic.core.session.ui;
+package eus.cic.core.app.session.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
