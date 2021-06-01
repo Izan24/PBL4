@@ -15,6 +15,7 @@ public class RoundedJPasswordFieldShow extends JPasswordField implements FocusLi
 	private final String hint;
 	private boolean showingHint;
 	private JCheckBox showPassword;
+	public  Color foreground_normal = new Color(127, 127, 127);
 
 	public RoundedJPasswordFieldShow(String hint, JCheckBox showPassword) {
 		super(hint);
@@ -34,7 +35,7 @@ public class RoundedJPasswordFieldShow extends JPasswordField implements FocusLi
 			} else if (showPassword.isSelected()) {
 				super.setEchoChar((char) 0);
 			}
-			super.setForeground(Color.black);
+			super.setForeground(foreground_normal);
 			showingHint = false;
 		}
 	}

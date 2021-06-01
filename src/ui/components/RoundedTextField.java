@@ -12,6 +12,7 @@ public class RoundedTextField extends JTextField implements FocusListener {
 
 	private static final long serialVersionUID = -5175905329740849910L;
 	private final String hint;
+	public  Color foreground_normal = new Color(127, 127, 127);
 
 	public RoundedTextField(String hint) {
 		super(hint);
@@ -24,7 +25,7 @@ public class RoundedTextField extends JTextField implements FocusListener {
 	public void focusGained(FocusEvent e) {
 		if (super.getText().equals(hint)) {
 			super.setText("");
-			super.setForeground(Color.black);
+			super.setForeground(foreground_normal);
 		}
 	}
 

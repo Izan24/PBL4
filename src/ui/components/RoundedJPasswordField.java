@@ -13,6 +13,7 @@ public class RoundedJPasswordField extends JPasswordField implements FocusListen
 	private static final long serialVersionUID = -5175905329740849910L;
 	private final String hint;
 	private boolean showingHint;
+	public  Color foreground_normal = new Color(127, 127, 127);
 
 	public RoundedJPasswordField(String hint) {
 		super(hint);
@@ -27,7 +28,7 @@ public class RoundedJPasswordField extends JPasswordField implements FocusListen
 		if (this.getText().isEmpty()) {
 			super.setText("");
 			super.setEchoChar('*');
-			super.setForeground(Color.black);
+			super.setForeground(foreground_normal);
 			showingHint = false;
 		}
 	}

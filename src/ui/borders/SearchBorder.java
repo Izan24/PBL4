@@ -14,7 +14,8 @@ import javax.imageio.ImageIO;
 
 public class SearchBorder extends RoundedBorder {
 
-	public static final String IMAGEFILE = "resources/menuicons/search.png";
+	private static final String IMAGEFILE = "resources/menuicons/search.png";
+
 
 	private Image searchImage;
 
