@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 public class APIutils {
 	public static String URL = "http://servkolay.ddns.net";
-	public static final int PORT = 80;
+	public static final int PORT = 8844;
 
 	private static HttpURLConnection getConnection(String url, String method, int port) throws IOException {
 		URL urlwport = new URL(URL + ":" + port + url.toString());
@@ -33,6 +33,9 @@ public class APIutils {
 				response.append(line);
 			}
 			return new JSONObject(response.toString()).put("status", "success");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 
@@ -43,6 +46,7 @@ public class APIutils {
 			os.write(input, 0, input.length);
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -54,6 +58,7 @@ public class APIutils {
 			System.out.println("Response Code : " + responseCode);
 			return getInputStream(httpClient);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new JSONObject().put("status", "error").put("error", "general");
 		}
 	}
@@ -70,6 +75,7 @@ public class APIutils {
 			System.out.println("Response Code : " + responseCode);
 			return getInputStream(httpClient);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new JSONObject().put("status", "error").put("error", "general");
 		}
 	}

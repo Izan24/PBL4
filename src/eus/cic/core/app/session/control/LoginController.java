@@ -41,7 +41,7 @@ public class LoginController implements IRoundButtonListener{
 		JSONObject form = new JSONObject();
 		form.put("user", user).put("pass", pass);
 		
-		JSONObject response = APIutils.postRequest(APIutils.URL, form);
+		JSONObject response = APIutils.postRequest("/api/login", form);
 		
 		if (!response.getString("status").equals("success")) {
 			new CreationErrorDialog(vista, "Error: "+response.getString("error"), true, ERROR_STRING);
