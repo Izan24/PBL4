@@ -1,5 +1,7 @@
 package eus.cic.core.app.interfaces;
 
+import java.awt.event.ActionEvent;
+
 public interface IRoundButtonListener {
-	public void actionPerformed(String command);
+	void actionPerformed(String actionCommand);
 }

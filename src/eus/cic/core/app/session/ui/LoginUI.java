@@ -3,7 +3,6 @@ package eus.cic.core.app.session.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -20,9 +19,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import eus.cic.core.app.interfaces.IRoundButtonListener;
 import eus.cic.core.app.ui.borders.SearchBorder;
 import eus.cic.core.app.ui.components.MDButton;
 import eus.cic.core.app.ui.components.RoundedJPasswordField;
@@ -30,36 +29,27 @@ import eus.cic.core.app.ui.components.RoundedTextField;
 
 public class LoginUI extends JFrame {
 
+
+	private static final long serialVersionUID = -7388184229618270783L;
+	
 	private static final String VERSION = "V0.1.3";
 	private static final Color FOREGROUND_COLOR_VERSION = new Color(166, 166, 166);
 	private static final Color FOREGROUND_COLOR_TEXT = new Color(38, 38, 38);
+	
 	private static final Font FONT_VERSION = new Font("Calibri", Font.PLAIN, 12);
 	private static final Font FONT_MAIN_LABEL = new Font("Calibri", Font.BOLD, 28);
 	private static final Font FONT_USER_PASS = new Font("Calibri", Font.BOLD, 18);
+	
 	private static final String LOGO_PATH = "resources/assets/LogoAI_100_100.png";
 
 	private static final String LOGIN_LABEL = "Iniciar Sesion";
-	private JTextField userField;
+	
+	private JTextField userField;	
 	private JPasswordField passwordField;
+	private IRoundButtonListener listener;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				} catch (Exception e) {
-				}
-				try {
-					LoginUI frame = new LoginUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	public LoginUI() {
+	public LoginUI(IRoundButtonListener listener) {
+		this.listener = listener;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(new Dimension(500, 700));
 		setLocationRelativeTo(null);
@@ -85,7 +75,7 @@ public class LoginUI extends JFrame {
 	}
 
 	private JButton createSubmitButton() {
-		JButton submit = new MDButton("->", new Dimension(55, 50), MDButton.RED, 40, null, "submit");
+		JButton submit = new MDButton("Login", new Dimension(80, 50), MDButton.RED, 40, listener, "submit");
 		submit.setFocusable(true);
 		submit.grabFocus();
 		return submit;

@@ -15,9 +15,10 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
+import eus.cic.core.app.ui.components.MDButton;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
-import eus.cic.core.app.ui.components.UIRoundButton;
 
 public class CreationErrorDialog extends JDialog implements IRoundButtonListener {
 
@@ -51,14 +52,7 @@ public class CreationErrorDialog extends JDialog implements IRoundButtonListener
 	}
 
 	private void initJbuttons() {
-		confirmButton = new JButton("Aceptar");
-		confirmButton.setPreferredSize(new Dimension(80, 30));
-		confirmButton.setBackground(new Color(28, 162, 243));
-		confirmButton.setForeground(Color.white);
-		confirmButton.setBorder(BorderFactory.createEmptyBorder());
-		confirmButton.setFocusable(false);
-		confirmButton.setUI(new UIRoundButton(confirmButton, 30, new Color(28, 162, 243), Color.white,
-				new Font("Roboto", Font.PLAIN, 15), this, DISPOSE_COMAND));
+		confirmButton = new MDButton("Aceptar", new Dimension(100, 30), MDButton.RED, 20, this, DISPOSE_COMAND);
 	}
 
 	private void initJlabels() {
@@ -71,6 +65,7 @@ public class CreationErrorDialog extends JDialog implements IRoundButtonListener
 		iconLabel = new JLabel();
 		iconLabel.setBackground(Color.white);
 		iconLabel.setFocusable(false);
+		iconLabel.setBorder(new EmptyBorder(10, 10, 40, 10));
 		iconLabel.setIcon(new ImageIcon("resources/menuIcons/bchef_icon.png"));
 	}
 

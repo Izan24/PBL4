@@ -30,5 +30,10 @@
 			<artifactId>jcalendar</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20201115</version>
+		</dependency>
 	</dependencies>
 </project>
