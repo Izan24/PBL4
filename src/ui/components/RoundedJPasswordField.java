@@ -18,7 +18,7 @@ public class RoundedJPasswordField extends JPasswordField implements FocusListen
 		super(hint);
 		this.hint = hint;
 		this.showingHint = true;
-		super.setMargin(new Insets(4, 28, 4, 8));
+		super.setMargin(new Insets(4, 8, 4, 8));
 		super.addFocusListener(this);
 	}
 
