@@ -2,7 +2,6 @@ package eus.cic.core.session.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
@@ -21,11 +20,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
+import ui.borders.SearchBorder;
 import ui.components.MDButton;
 import ui.components.RoundedJPasswordField;
 import ui.components.RoundedTextField;
-import interfaces.IRoundButtonListener;
 
 public class LoginUI extends JFrame {
 	
@@ -33,11 +33,12 @@ public class LoginUI extends JFrame {
 	private static final Color FOREGROUND_COLOR_VERSION = new Color(166, 166, 166);
 	private static final Color FOREGROUND_COLOR_USER_PASS = new Color(127, 127, 127);
 	private static final Color BACKGROUND_COLOR_USER_PASS = new Color(217, 217, 217);
-	private static final Font FONT_VERSION = new Font("Calibri", Font.PLAIN, 10);
+	private static final Font FONT_VERSION = new Font("Calibri", Font.PLAIN, 12);
 	private static final Font FONT_MAIN_LABEL = new Font("Calibri", Font.BOLD, 28);
 	private static final Font FONT_USER_PASS = new Font("Calibri", Font.BOLD, 14);
 	private static final String LOGO_PATH = "resources/assets/LogoAI_100_100.png";
 	private static final String LOGIN_LABEL = "Iniciar Sesión";
+	
 	private JTextField userField;
 	private JPasswordField passwordField;
 
@@ -57,7 +58,7 @@ public class LoginUI extends JFrame {
 
 	public LoginUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(new Dimension(500, 800));
+		setSize(new Dimension(500, 700));
 		setLocationRelativeTo(null);
 		setContentPane(createContentPane());
 	}
@@ -73,7 +74,7 @@ public class LoginUI extends JFrame {
 
 
 	private JPanel createMainPanel() {
-		JPanel mainPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 1000, 80));
+		JPanel mainPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 1000, 70));
 		mainPanel.setBackground(Color.WHITE);
 		mainPanel.add(loadImage());
 		mainPanel.add(createLabel());
@@ -96,7 +97,9 @@ public class LoginUI extends JFrame {
 		userField.setFont(FONT_USER_PASS);
 		userField.setForeground(FOREGROUND_COLOR_USER_PASS);
 		userField.setColumns(20);
-		userField.setBackground(BACKGROUND_COLOR_USER_PASS);
+		userField.setMinimumSize(new Dimension(10, 50));
+		userField.setBackground(Color.WHITE);
+		userField.setBorder(new SearchBorder(20, Color.DARK_GRAY, false));
 		
 		passwordField = new RoundedJPasswordField("Password");
 		passwordField.setFont(FONT_USER_PASS);
@@ -136,11 +139,13 @@ public class LoginUI extends JFrame {
 		JLabel versionLabel = new JLabel(VERSION);
 		versionLabel.setForeground(FOREGROUND_COLOR_VERSION);
 		versionLabel.setFont(FONT_VERSION);
+		versionLabel.setBorder(new EmptyBorder(5, 10, 5, 10));
 				
 		Box horizontalBox = Box.createHorizontalBox();
 	    horizontalBox.add(Box.createGlue());
 	    horizontalBox.add(versionLabel);
 	    versioPanel.add(horizontalBox);
+	    versioPanel.setBackground(Color.WHITE);
 		return versioPanel;
 	}
 
