@@ -37,8 +37,12 @@ public class LoginUI extends JFrame {
 	private static final Font FONT_MAIN_LABEL = new Font("Calibri", Font.BOLD, 28);
 	private static final Font FONT_USER_PASS = new Font("Calibri", Font.BOLD, 14);
 	private static final String LOGO_PATH = "resources/assets/LogoAI_100_100.png";
+<<<<<<< HEAD
 	private static final String LOGIN_LABEL = "Iniciar Sesión";
 	
+=======
+	private static final String LOGIN_LABEL = "Iniciar Sesion";
+>>>>>>> branch 'main' of https://github.com/Izan24/PBL4.git
 	private JTextField userField;
 	private JPasswordField passwordField;
 
