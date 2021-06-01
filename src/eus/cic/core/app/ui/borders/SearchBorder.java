@@ -1,4 +1,4 @@
-package ui.borders;
+package eus.cic.core.app.ui.borders;
 
 import java.awt.Color;
 import java.awt.Component;

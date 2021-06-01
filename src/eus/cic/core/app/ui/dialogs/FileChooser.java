@@ -1,4 +1,4 @@
-package ui.dialogs;
+package eus.cic.core.app.ui.dialogs;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;

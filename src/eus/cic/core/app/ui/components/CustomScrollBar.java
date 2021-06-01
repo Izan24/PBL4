@@ -1,4 +1,4 @@
-package ui.components;
+package eus.cic.core.app.ui.components;
 
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;

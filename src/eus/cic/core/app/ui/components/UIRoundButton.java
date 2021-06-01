@@ -1,4 +1,4 @@
-package ui.components;
+package eus.cic.core.app.ui.components;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.plaf.ButtonUI;
 
-import interfaces.IRoundButtonListener;
+import eus.cic.core.app.interfaces.IRoundButtonListener;
 
 public class UIRoundButton extends ButtonUI implements MouseListener {
 

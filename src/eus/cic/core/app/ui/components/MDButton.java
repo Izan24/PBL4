@@ -1,11 +1,12 @@
-package ui.components;
+package eus.cic.core.app.ui.components;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JButton;
-import interfaces.IRoundButtonListener;
+
+import eus.cic.core.app.interfaces.IRoundButtonListener;
 
 public class MDButton extends JButton {
 	

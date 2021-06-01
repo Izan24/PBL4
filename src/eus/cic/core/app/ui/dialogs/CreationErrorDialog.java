@@ -1,4 +1,4 @@
-package ui.dialogs;
+package eus.cic.core.app.ui.dialogs;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,8 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import interfaces.IRoundButtonListener;
-import ui.components.UIRoundButton;
+import eus.cic.core.app.interfaces.IRoundButtonListener;
+import eus.cic.core.app.ui.components.UIRoundButton;
 
 public class CreationErrorDialog extends JDialog implements IRoundButtonListener {
 

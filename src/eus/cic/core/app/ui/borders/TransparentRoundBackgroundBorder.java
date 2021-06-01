@@ -1,4 +1,4 @@
-package ui.borders;
+package eus.cic.core.app.ui.borders;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -11,7 +11,7 @@ import java.awt.RenderingHints;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 
-import ui.components.CustomButton;
+import eus.cic.core.app.ui.components.CustomButton;
 
 public class TransparentRoundBackgroundBorder implements Border {
 	

@@ -1,4 +1,4 @@
-package ui.components;
+package eus.cic.core.app.ui.components;
 
 import java.awt.Color;
 import java.awt.Graphics;

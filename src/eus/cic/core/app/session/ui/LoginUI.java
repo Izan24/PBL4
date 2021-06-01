@@ -23,10 +23,10 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import ui.borders.SearchBorder;
-import ui.components.MDButton;
-import ui.components.RoundedJPasswordField;
-import ui.components.RoundedTextField;
+import eus.cic.core.app.ui.borders.SearchBorder;
+import eus.cic.core.app.ui.components.MDButton;
+import eus.cic.core.app.ui.components.RoundedJPasswordField;
+import eus.cic.core.app.ui.components.RoundedTextField;
 
 public class LoginUI extends JFrame {
 

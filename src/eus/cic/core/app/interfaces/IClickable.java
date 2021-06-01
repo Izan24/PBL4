@@ -1,4 +1,4 @@
-package interfaces;
+package eus.cic.core.app.interfaces;
 
 public interface IClickable {
 

@@ -1,4 +1,4 @@
-package ui.components;
+package eus.cic.core.app.ui.components;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,7 +17,7 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicButtonUI;
 
-import ui.borders.TransparentRoundBackgroundBorder;
+import eus.cic.core.app.ui.borders.TransparentRoundBackgroundBorder;
 
 public class RoundTransparentButton extends BasicButtonUI implements MouseListener, KeyListener {
 
