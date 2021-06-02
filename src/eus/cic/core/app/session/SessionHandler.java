@@ -1,5 +1,7 @@
 package eus.cic.core.app.session;
 
+import org.json.JSONObject;
+
 public class SessionHandler {
 	private static String session;
 	private static Integer userId;
@@ -20,5 +22,12 @@ public class SessionHandler {
 	public static void setSession(String session, Integer userId) {
 		SessionHandler.session = session;
 		SessionHandler.userId = userId;
+	}
+	
+	public static JSONObject getSessionCredentials() {
+		JSONObject json = new JSONObject();
+		json.put("session", session);
+		json.put("user_id", userId);
+		return json;
 	}
 }
