@@ -1,26 +1,26 @@
 package eus.cic.core.models;
 
 public class Building {
-	Integer edificioId;
-	String codigoPostal;
-	String nombre;
+	Integer buildingId;
+	String postalCode;
+	String name;
 
-	public Building(Integer edificioId, String codigoPostal, String nombre) {
-		this.edificioId = edificioId;
-		this.codigoPostal = codigoPostal;
-		this.nombre = nombre;
+	public Building(Integer buildingId, String postalCode, String name) {
+		this.buildingId = buildingId;
+		this.postalCode = postalCode;
+		this.name = name;
 	}
 
-	public Integer getEdificioId() {
-		return edificioId;
+	public Integer getBuildingId() {
+		return buildingId;
 	}
 
-	public String getCodigoPostal() {
-		return codigoPostal;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return name;
 	}
 
 }
