@@ -2,35 +2,35 @@ package eus.cic.core.models;
 
 public class Room {
 	
-	String edificioId;
-	String piso;
-	String descripcion;
-	Boolean habilitado;
+	String buildingId;
+	String floor;
+	String description;
+	Boolean enabled;
 	
-	public Room(String descripcion, String edificioId, String piso, Boolean habilitado) {
-		this.descripcion = descripcion;
-		this.edificioId = edificioId;
-		this.piso = piso;
-		this.habilitado = habilitado;
+	public Room(String description, String buildingId, String floor, Boolean enabled) {
+		this.description = description;
+		this.buildingId = buildingId;
+		this.floor = floor;
+		this.enabled = enabled;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getDescription() {
+		return description;
 	}
 
-	public String getEdificioId() {
-		return edificioId;
+	public String getBuildingId() {
+		return buildingId;
 	}
 
-	public String getPiso() {
-		return piso;
+	public String getFloor() {
+		return floor;
 	}
 
-	public Boolean getHabilitado() {
-		return habilitado;
+	public Boolean isEnabled() {
+		return enabled;
 	}
 	
-	public void setHabilitado(Boolean habilitado) {
-		this.habilitado = habilitado;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 }
