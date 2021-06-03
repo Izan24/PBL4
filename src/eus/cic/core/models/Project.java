@@ -2,17 +2,17 @@ package eus.cic.core.models;
 
 public class Project {
 
-	Integer horasEstimadas;
+	Integer estimatedHours;
 
-	public Project(Integer horasEstimadas) {
-		this.horasEstimadas = horasEstimadas;
+	public Project(Integer estimatedHours) {
+		this.estimatedHours = estimatedHours;
 	}
 
-	public Integer getHorasEstimadas() {
-		return horasEstimadas;
+	public Integer getEstimatedHours() {
+		return estimatedHours;
 	}
 
-	public void setHorasEstimadas(Integer horasEstimadas) {
-		this.horasEstimadas = horasEstimadas;
+	public void setEstimatedHours(Integer estimatedHours) {
+		this.estimatedHours = estimatedHours;
 	}
 }
