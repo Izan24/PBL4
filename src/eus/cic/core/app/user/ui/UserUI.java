@@ -4,4 +4,7 @@ import javax.swing.JPanel;
 
 public class UserUI extends JPanel {
 
+	public UserUI() {
+		
+	}
 }
