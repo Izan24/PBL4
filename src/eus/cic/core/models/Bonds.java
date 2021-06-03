@@ -3,11 +3,11 @@ package eus.cic.core.models;
 public class Bonds {
 
 	Integer date;
-	Integer horas;
+	Integer hours;
 
-	public Bonds(Integer date, Integer horas) {
+	public Bonds(Integer date, Integer hours) {
 		this.date = date;
-		this.horas = horas;
+		this.hours = hours;
 	}
 
 	public Integer getDate() {
@@ -18,11 +18,11 @@ public class Bonds {
 		this.date = date;
 	}
 
-	public Integer getHoras() {
-		return horas;
+	public Integer getHours() {
+		return hours;
 	}
 
-	public void setHoras(Integer horas) {
-		this.horas = horas;
+	public void setHours(Integer hours) {
+		this.hours = hours;
 	}
 }
