@@ -5,80 +5,76 @@ import java.util.List;
 public class User {
 
 	String name;
-	String apellido;
-	String codigoPostal;
-	String direccion;
-	String prefijo;
-	String telefono;
+	String surname;
+	String postalCode;
+	String address;
+	String prefix;
+	String phoneNumber;
 	String departamento;
 	String dni;
 	Boolean admin;
-	List<Room> permisos;
+	List<Room> permissions;
 
-	public User(String name, String apellido, String codigoPostal, String direccion, String prefijo,
-			String telefono, String departamento, String dni, Boolean admin, List<Room> permisos) {
+	public User(String name, String surname, String postalCode, String address, String prefix,
+			String phoneNumber, String departamento, String dni, Boolean admin, List<Room> permissions) {
 		this.name = name;
-		this.apellido = apellido;
-		this.codigoPostal = codigoPostal;
-		this.direccion = direccion;
-		this.prefijo = prefijo;
-		this.telefono = telefono;
+		this.surname = surname;
+		this.postalCode = postalCode;
+		this.address = address;
+		this.prefix = prefix;
+		this.phoneNumber = phoneNumber;
 		this.departamento = departamento;
 		this.dni = dni;
 		this.admin = admin;
-		this.permisos = permisos;
+		this.permissions = permissions;
 	}
 
 	public String getNombre() {
 		return name;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getSurname() {
+		return surname;
 	}
 
-	public String getCodigoPostal() {
-		return codigoPostal;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getAddress() {
+		return address;
 	}
 
-	public String getPrefijo() {
-		return prefijo;
+	public String getPrefix() {
+		return prefix;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
 	public String getDepartamento() {
 		return departamento;
 	}
 
-	public String getUsuario() {
-		return usuario;
-	}
-
 	public String getDni() {
 		return dni;
 	}
 
-	public List<Room> getPermisos() {
-		return permisos;
+	public List<Room> getPermissions() {
+		return permissions;
 	}
 
-	public void setPermisos(List<Room> permisos) {
-		this.permisos = permisos;
+	public void setPermissions(List<Room> permissions) {
+		this.permissions = permissions;
 	}
 
-	public void addPermiso(Room sala) {
-		permisos.add(sala);
+	public void addPermission(Room room) {
+		permissions.add(room);
 	}
 
-	public void removePermiso(Room sala) {
-		permisos.remove(sala);
+	public void removePermission(Room room) {
+		permissions.remove(room);
 	}
 
 	public Boolean isAdmin() {
