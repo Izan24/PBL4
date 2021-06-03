@@ -1,10 +1,10 @@
 package eus.cic.core.models;
 
-public class Proyecto {
+public class Project {
 
 	Integer horasEstimadas;
 
-	public Proyecto(Integer horasEstimadas) {
+	public Project(Integer horasEstimadas) {
 		this.horasEstimadas = horasEstimadas;
 	}
 

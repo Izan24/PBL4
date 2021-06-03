@@ -2,13 +2,13 @@ package eus.cic.core.models;
 
 import java.util.List;
 
-public class Reunion {
+public class Meeting {
 	Integer reunionId;
 	Integer organizadorId;
 	Integer salaId;
-	List<Trabajador> asistentes;
+	List<User> asistentes;
 
-	public Reunion(Integer reunionId, Integer organizadorId, Integer salaId, List<Trabajador> asistentes) {
+	public Meeting(Integer reunionId, Integer organizadorId, Integer salaId, List<User> asistentes) {
 		this.reunionId = reunionId;
 		this.organizadorId = organizadorId;
 		this.salaId = salaId;
@@ -27,15 +27,15 @@ public class Reunion {
 		return salaId;
 	}
 
-	public List<Trabajador> getAsistentes() {
+	public List<User> getAsistentes() {
 		return asistentes;
 	}
 
-	public void setAsistentes(List<Trabajador> asistentes) {
+	public void setAsistentes(List<User> asistentes) {
 		this.asistentes = asistentes;
 	}
 
-	public void addAsistant(Trabajador asistente) {
+	public void addAsistant(User asistente) {
 		asistentes.add(asistente);
 	}
 }

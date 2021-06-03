@@ -1,9 +1,9 @@
 package eus.cic.core.models;
 
-public class Tarjeta {
+public class Card {
 	String id;
 	
-	public Tarjeta(	String id) {
+	public Card(	String id) {
 		this.id = id;
 	}
 

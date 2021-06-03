@@ -2,7 +2,7 @@ package eus.cic.core.models;
 
 import java.util.List;
 
-public class Trabajador {
+public class User {
 
 	String nombre;
 	String apellido;
@@ -13,10 +13,10 @@ public class Trabajador {
 	String departamento;
 	String usuario;
 	String dni;
-	List<Sala> permisos;
+	List<Room> permisos;
 
-	public Trabajador(String nombre, String apellido, String codigoPostal, String direccion, String prefijo,
-			String telefono, String departamento, String usuario, String dni, List<Sala> permisos) {
+	public User(String nombre, String apellido, String codigoPostal, String direccion, String prefijo,
+			String telefono, String departamento, String usuario, String dni, List<Room> permisos) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.codigoPostal = codigoPostal;
@@ -65,19 +65,19 @@ public class Trabajador {
 		return dni;
 	}
 
-	public List<Sala> getPermisos() {
+	public List<Room> getPermisos() {
 		return permisos;
 	}
 
-	public void setPermisos(List<Sala> permisos) {
+	public void setPermisos(List<Room> permisos) {
 		this.permisos = permisos;
 	}
 
-	public void addPermiso(Sala sala) {
+	public void addPermiso(Room sala) {
 		permisos.add(sala);
 	}
 
-	public void removePermiso(Sala sala) {
+	public void removePermiso(Room sala) {
 		permisos.remove(sala);
 	}
 

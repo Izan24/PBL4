@@ -1,11 +1,11 @@
 package eus.cic.core.models;
 
-public class Bonos {
+public class Bonds {
 
 	Integer date;
 	Integer horas;
 
-	public Bonos(Integer date, Integer horas) {
+	public Bonds(Integer date, Integer horas) {
 		this.date = date;
 		this.horas = horas;
 	}

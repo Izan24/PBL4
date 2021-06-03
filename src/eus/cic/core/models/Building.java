@@ -1,11 +1,11 @@
 package eus.cic.core.models;
 
-public class Edificio {
+public class Building {
 	Integer edificioId;
 	String codigoPostal;
 	String nombre;
 
-	public Edificio(Integer edificioId, String codigoPostal, String nombre) {
+	public Building(Integer edificioId, String codigoPostal, String nombre) {
 		this.edificioId = edificioId;
 		this.codigoPostal = codigoPostal;
 		this.nombre = nombre;

@@ -1,13 +1,13 @@
 package eus.cic.core.models;
 
-public class Sala {
+public class Room {
 	
 	String edificioId;
 	String piso;
 	String descripcion;
 	Boolean habilitado;
 	
-	public Sala(String descripcion, String edificioId, String piso, Boolean habilitado) {
+	public Room(String descripcion, String edificioId, String piso, Boolean habilitado) {
 		this.descripcion = descripcion;
 		this.edificioId = edificioId;
 		this.piso = piso;
