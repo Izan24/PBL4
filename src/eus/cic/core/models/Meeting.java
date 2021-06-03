@@ -3,39 +3,39 @@ package eus.cic.core.models;
 import java.util.List;
 
 public class Meeting {
-	Integer reunionId;
-	Integer organizadorId;
-	Integer salaId;
-	List<User> asistentes;
+	Integer meetingId;
+	Integer organizerId;
+	Integer roomId;
+	List<User> attendants;
 
-	public Meeting(Integer reunionId, Integer organizadorId, Integer salaId, List<User> asistentes) {
-		this.reunionId = reunionId;
-		this.organizadorId = organizadorId;
-		this.salaId = salaId;
-		this.asistentes = asistentes;
+	public Meeting(Integer meetingId, Integer organizerId, Integer roomId, List<User> attendants) {
+		this.meetingId = meetingId;
+		this.organizerId = organizerId;
+		this.roomId = roomId;
+		this.attendants = attendants;
 	}
 
 	public Integer getReunionId() {
-		return reunionId;
+		return meetingId;
 	}
 
-	public Integer getOrganizadorId() {
-		return organizadorId;
+	public Integer getOrganizerId() {
+		return organizerId;
 	}
 
-	public Integer getSalaId() {
-		return salaId;
+	public Integer getRoomId() {
+		return roomId;
 	}
 
 	public List<User> getAsistentes() {
-		return asistentes;
+		return attendants;
 	}
 
-	public void setAsistentes(List<User> asistentes) {
-		this.asistentes = asistentes;
+	public void setAsistentes(List<User> attendants) {
+		this.attendants = attendants;
 	}
 
-	public void addAsistant(User asistente) {
-		asistentes.add(asistente);
+	public void addAsistant(User attendant) {
+		attendants.add(attendant);
 	}
 }
