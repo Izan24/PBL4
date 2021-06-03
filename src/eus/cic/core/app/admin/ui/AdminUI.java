@@ -1,4 +1,4 @@
-package eus.cic.core.app.ui.panels;
+package eus.cic.core.app.admin.ui;
 
 import javax.swing.JPanel;
 

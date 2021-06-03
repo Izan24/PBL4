@@ -6,7 +6,7 @@ import eus.cic.core.app.connection.APIutils;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 import eus.cic.core.app.session.SessionHandler;
 import eus.cic.core.app.session.ui.LoginUI;
-import eus.cic.core.app.ui.dialogs.CreationErrorDialog;
+import eus.cic.core.app.uicomponents.dialogs.CreationErrorDialog;
 
 public class LoginController implements IRoundButtonListener{
 	
@@ -26,7 +26,6 @@ public class LoginController implements IRoundButtonListener{
 	public static void getLogin() {
 		LoginController con = new LoginController();
 		while(!con.isLogged());
-		System.out.println("Uwu");
 	}
 	
 	public static void main(String[] args) {

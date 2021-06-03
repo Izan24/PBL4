@@ -13,10 +13,11 @@ public class User {
 	String departamento;
 	String usuario;
 	String dni;
+	Boolean admin;
 	List<Room> permisos;
 
 	public User(String nombre, String apellido, String codigoPostal, String direccion, String prefijo,
-			String telefono, String departamento, String usuario, String dni, List<Room> permisos) {
+			String telefono, String departamento, String usuario, String dni, Boolean admin, List<Room> permisos) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.codigoPostal = codigoPostal;
@@ -26,6 +27,7 @@ public class User {
 		this.departamento = departamento;
 		this.usuario = usuario;
 		this.dni = dni;
+		this.admin = admin;
 		this.permisos = permisos;
 	}
 
@@ -79,6 +81,10 @@ public class User {
 
 	public void removePermiso(Room sala) {
 		permisos.remove(sala);
+	}
+
+	public Boolean isAdmin() {
+		return admin;
 	}
 
 }

@@ -22,10 +22,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import eus.cic.core.app.interfaces.IRoundButtonListener;
-import eus.cic.core.app.ui.borders.SearchBorder;
-import eus.cic.core.app.ui.components.MDButton;
-import eus.cic.core.app.ui.components.RoundedJPasswordField;
-import eus.cic.core.app.ui.components.RoundedTextField;
+import eus.cic.core.app.uicomponents.borders.SearchBorder;
+import eus.cic.core.app.uicomponents.components.MDButton;
+import eus.cic.core.app.uicomponents.components.RoundedJPasswordField;
+import eus.cic.core.app.uicomponents.components.RoundedTextField;
 
 public class LoginUI extends JFrame {
 

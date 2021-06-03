@@ -1,11 +1,10 @@
-package eus.cic.core.app.ui;
+package eus.cic.core.app.main;
 
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import eus.cic.core.app.controllers.WindowController;
 import eus.cic.core.models.User;
 
 public class PrincipalWindow extends JFrame {
@@ -28,7 +27,4 @@ public class PrincipalWindow extends JFrame {
 		this.setContentPane(viewPanel);
 	}
 	
-	public static void main(String[] args) {
-		PrincipalWindow window = new PrincipalWindow(null);
-	}
 }

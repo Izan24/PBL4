@@ -2,6 +2,10 @@ package eus.cic.core.app.session;
 
 import org.json.JSONObject;
 
+import eus.cic.core.app.connection.APIutils;
+import eus.cic.core.app.utils.JSONParser;
+import eus.cic.core.models.User;
+
 public class SessionHandler {
 	private static String session;
 	private static Integer userId;
@@ -29,5 +33,11 @@ public class SessionHandler {
 		json.put("session", session);
 		json.put("user_id", userId);
 		return json;
+	}
+	
+	public static User getUserById(Integer userId) {
+		JSONObject json = APIutils.getRequest(String.format("/api/getUserById?id=%d&session=%s", userId, session));
+		User user = JSONParser.getUserFromJSON(json);
+		return user;
 	}
 }
