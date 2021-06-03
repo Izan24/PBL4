@@ -10,8 +10,8 @@ public class Application {
 
 	public static void main(String[] args) {
 		LoginController.getLogin();
-		User user = 
-		PrincipalWindow win = new PrincipalWindow();
+		User user = SessionHandler.getUser();
+		//PrincipalWindow win = new PrincipalWindow();
 	}
 
 }

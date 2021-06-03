@@ -9,6 +9,7 @@ import eus.cic.core.models.User;
 public class SessionHandler {
 	private static String session;
 	private static Integer userId;
+	private static User user;
 
 	static {
 		session = null;
@@ -35,9 +36,12 @@ public class SessionHandler {
 		return json;
 	}
 	
-	public static User getUserById(Integer userId) {
-		JSONObject json = APIutils.getRequest(String.format("/api/getUserById?id=%d&session=%s", userId, session));
-		User user = JSONParser.getUserFromJSON(json);
+	public static User getUser() {
+		if (user == null) {
+			JSONObject json = APIutils.getRequest(String.format("/api/getUserById?id=%d&session=%s", userId, session));
+			User user = JSONParser.parseUser(json);
+			SessionHandler.user = user;
+		}
 		return user;
 	}
 }

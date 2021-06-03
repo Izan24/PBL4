@@ -39,7 +39,7 @@ public class LoginController implements IRoundButtonListener{
 			String pass = vista.getPassword();
 			JSONObject json = sendLoginRequest(user, pass);
 			if (!(json == null)) {
-				SessionHandler.setSession(json.getString("sessin"), json.getInt("user_id"));
+				SessionHandler.setSession(json.getString("session"), json.getInt("user_id"));
 				vista.dispose();
 				logged = true;
 			}

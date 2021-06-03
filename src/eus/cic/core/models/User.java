@@ -4,35 +4,33 @@ import java.util.List;
 
 public class User {
 
-	String nombre;
+	String name;
 	String apellido;
 	String codigoPostal;
 	String direccion;
 	String prefijo;
 	String telefono;
 	String departamento;
-	String usuario;
 	String dni;
 	Boolean admin;
 	List<Room> permisos;
 
-	public User(String nombre, String apellido, String codigoPostal, String direccion, String prefijo,
-			String telefono, String departamento, String usuario, String dni, Boolean admin, List<Room> permisos) {
-		this.nombre = nombre;
+	public User(String name, String apellido, String codigoPostal, String direccion, String prefijo,
+			String telefono, String departamento, String dni, Boolean admin, List<Room> permisos) {
+		this.name = name;
 		this.apellido = apellido;
 		this.codigoPostal = codigoPostal;
 		this.direccion = direccion;
 		this.prefijo = prefijo;
 		this.telefono = telefono;
 		this.departamento = departamento;
-		this.usuario = usuario;
 		this.dni = dni;
 		this.admin = admin;
 		this.permisos = permisos;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return name;
 	}
 
 	public String getApellido() {
