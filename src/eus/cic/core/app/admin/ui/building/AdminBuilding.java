@@ -31,7 +31,7 @@ public class AdminBuilding extends JPanel{
 		this.setBackground(BG_COLOR);
 		this.setOpaque(true);
 		
-		controller = new AdminBuildingController();
+		controller = new AdminBuildingController(this);
 		clickListener = new DoubleClickListener(controller);
 		
 		initJList();
