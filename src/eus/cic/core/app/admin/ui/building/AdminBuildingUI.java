@@ -4,15 +4,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
 import eus.cic.core.app.admin.controller.building.AdminBuildingController;
 import eus.cic.core.app.utils.DoubleClickListener;
+import eus.cic.core.app.utils.JSONParser;
 import eus.cic.core.models.Building;
 
-public class AdminBuilding extends JPanel{
+public class AdminBuildingUI extends JPanel{
 	
 	AdminBuildingController controller;
 	
@@ -25,13 +25,11 @@ public class AdminBuilding extends JPanel{
 	private static final Color BG_COLOR = Color.white;
 	
 	
-	public AdminBuilding() {
+	public AdminBuildingUI() {
 		super(new GridLayout(1,2));
-		this.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
-		this.setBackground(BG_COLOR);
-		this.setOpaque(true);
 		
-		controller = new AdminBuildingController();
+		this.setBackground(BG_COLOR);
+		
 		clickListener = new DoubleClickListener(controller);
 		
 		initJList();
@@ -44,7 +42,7 @@ public class AdminBuilding extends JPanel{
 	private void initJList() {
 		buildings = new JList<>();
 		listModel = new BuildingList();
-		//listModel.setList(JSONCalls.getBuildings());
+		listModel.setList(JSONParser.getBuildings());
 		renderer = new BuildingListRenderer();
 
 		buildings.setModel(listModel);

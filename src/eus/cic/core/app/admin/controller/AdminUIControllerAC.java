@@ -1,8 +1,10 @@
 package eus.cic.core.app.admin.controller;
 
 public class AdminUIControllerAC {
+	
 
 	public static final String BUILDINGS = "buildings";
+	public static final String MENU = "menu";
 	public static final String ROOMS = "rooms";
 	public static final String WORKERS = "workers";
 	public static final String PROJECTS = "projects";
