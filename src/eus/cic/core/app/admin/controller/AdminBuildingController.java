@@ -3,7 +3,9 @@ package eus.cic.core.app.admin.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdminBuildingController implements ActionListener {
+import eus.cic.core.app.interfaces.IClickable;
+
+public class AdminBuildingController implements ActionListener, IClickable{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -18,6 +20,11 @@ public class AdminBuildingController implements ActionListener {
 			
 			break;
 		}
+	}
+
+	@Override
+	public void clicked() {
+		System.out.println("Dobbblee");
 	}
 
 }

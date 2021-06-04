@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.management.loading.PrivateClassLoader;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
 import eus.cic.core.app.admin.controller.AdminBuildingController;
+import eus.cic.core.app.admin.controller.DoubleClickListener;
 import eus.cic.core.models.Building;
 
 public class AdminBuilding extends JPanel{
@@ -18,6 +18,7 @@ public class AdminBuilding extends JPanel{
 	JList<Building> buildings;
 	BuildingList listModel;
 	BuildingListRenderer renderer;
+	DoubleClickListener clickListener;
 	
 	private static final Font TITLE_FONT = new Font("Calibri", Font.BOLD, 12);
 	private static final Color BG_COLOR = Color.white;
@@ -27,6 +28,8 @@ public class AdminBuilding extends JPanel{
 		super(new GridLayout(1,2));
 		
 		this.setBackground(BG_COLOR);
+		
+		clickListener = new DoubleClickListener(controller);
 		
 		initJList();
 			
@@ -43,7 +46,7 @@ public class AdminBuilding extends JPanel{
 
 		buildings.setModel(listModel);
 		buildings.setCellRenderer(renderer);
-		//buildings.addMouseListener(listener);
+		buildings.addMouseListener(clickListener);
 	}
 
 
