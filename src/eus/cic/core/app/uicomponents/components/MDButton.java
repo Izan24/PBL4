@@ -16,10 +16,6 @@ public class MDButton extends JButton {
 	public static final Color RED = new Color(253, 85, 85);
 	public static final Font FONT = new Font("Calibri", Font.BOLD, 18);
 	
-	
-	/*
-	 * Constructor with listener and action command
-	 */
 	public MDButton(String string, Dimension size, Color color, Integer radius, IRoundButtonListener list, String actionCommand) {
 		super(string);
 		this.setPreferredSize(size);
@@ -27,10 +23,6 @@ public class MDButton extends JButton {
 		
 	}
 	
-	
-	/*
-	 * Constructor without listener
-	 */
 	public MDButton(String string, Dimension size, Color color, Integer radius) {
 		super(string);
 		this.setPreferredSize(size);

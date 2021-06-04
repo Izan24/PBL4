@@ -9,20 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.SeparatorUI;
 import javax.swing.plaf.basic.BasicButtonUI;
-import javax.swing.plaf.metal.MetalButtonUI;
-import javax.swing.plaf.metal.MetalSeparatorUI;
 
 public class MDButtonPanel extends JPanel implements ActionListener{
 	
+
+	private static final long serialVersionUID = 5864232316023256749L;
 	public static final Integer BUTTON_FICHAS = 0;
 	public static final Integer BUTTON_BONOS = 1;
 	public static final Integer BUTTON_RESERVAS = 2;
@@ -44,14 +39,13 @@ public class MDButtonPanel extends JPanel implements ActionListener{
 		buttons = initButtons();
 		createPanel();
 		this.setPreferredSize(new Dimension(1367, 44));
-		this.setBackground(Color.GRAY);
+		this.setBackground(Color.WHITE);
 		this.revalidate();
 		this.repaint();
 		selectButton(2);
 	}
 	
 	private List<String> initNames() {
-		// TODO FItxerotik irakurri
 		List<String> list = new ArrayList<>();
 		list.add(BUTTON_FICHAS, "Fichas");
 		list.add(BUTTON_BONOS, "Bonos");
@@ -81,9 +75,6 @@ public class MDButtonPanel extends JPanel implements ActionListener{
 	 private void createPanel() {
 		 for (JButton jButton : buttons) {
 			this.add(jButton);
-			//JSeparator sep = new JSeparator();
-			//sep.set
-			//this.add(sep);
 		}
 	 }
 	 
