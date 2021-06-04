@@ -12,6 +12,7 @@ public class PrincipalWindow extends JFrame {
 	WindowController windowController;
 
 	public PrincipalWindow(User user) {
+		super();
 		initWindow();
 		windowController = new WindowController(this, user);
 	}

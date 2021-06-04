@@ -1,4 +1,4 @@
-package eus.cic.core.app.admin.controller;
+package eus.cic.core.app.admin.controller.building;
 
 public class AdminBuildingControllerAC {
 

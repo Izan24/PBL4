@@ -7,11 +7,12 @@ import java.awt.GridLayout;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
-import eus.cic.core.app.admin.controller.AdminBuildingController;
-import eus.cic.core.app.admin.controller.DoubleClickListener;
+import eus.cic.core.app.admin.controller.building.AdminBuildingController;
+import eus.cic.core.app.utils.DoubleClickListener;
+import eus.cic.core.app.utils.JSONParser;
 import eus.cic.core.models.Building;
 
-public class AdminBuilding extends JPanel{
+public class AdminBuildingUI extends JPanel{
 	
 	AdminBuildingController controller;
 	
@@ -24,7 +25,7 @@ public class AdminBuilding extends JPanel{
 	private static final Color BG_COLOR = Color.white;
 	
 	
-	public AdminBuilding() {
+	public AdminBuildingUI() {
 		super(new GridLayout(1,2));
 		
 		this.setBackground(BG_COLOR);
@@ -41,7 +42,7 @@ public class AdminBuilding extends JPanel{
 	private void initJList() {
 		buildings = new JList<>();
 		listModel = new BuildingList();
-		//listModel.setList(JSONCalls.getPage(0));
+		listModel.setList(JSONParser.getBuildings());
 		renderer = new BuildingListRenderer();
 
 		buildings.setModel(listModel);

@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import eus.cic.core.models.Building;
 import eus.cic.core.models.Room;
 import eus.cic.core.models.User;
 
@@ -26,6 +27,11 @@ public class JSONParser {
 	}
 
 	private static List<Room> parsePermissions(JSONArray jsonArray) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static List<Building> getBuildings() {
 		// TODO Auto-generated method stub
 		return null;
 	}

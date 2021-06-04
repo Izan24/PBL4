@@ -1,4 +1,4 @@
-package eus.cic.core.app.admin.controller;
+package eus.cic.core.app.utils;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
