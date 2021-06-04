@@ -4,14 +4,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import eus.cic.core.app.admin.ui.AdminUI;
+import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 
 public class AdminUIController implements ActionListener, IRoundButtonListener{
 	
 	AdminUI ui;
 	
+	AdminBuildingUI buildingUI;
+	
 	public AdminUIController(AdminUI ui) {
 		this.ui = ui;
+		
 	}
 
 	@Override
@@ -19,6 +23,9 @@ public class AdminUIController implements ActionListener, IRoundButtonListener{
 		
 		switch (e.getActionCommand()) {
 		case AdminUIControllerAC.BUILDINGS:
+			if (buildingUI == null) {
+				buildingUI = new AdminBuildingUI();
+			}
 			ui.enableHome();
 			
 			break;

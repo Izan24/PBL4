@@ -29,22 +29,21 @@ import eus.cic.core.app.uicomponents.components.RoundedTextField;
 
 public class LoginUI extends JFrame {
 
-
 	private static final long serialVersionUID = -7388184229618270783L;
-	
+
 	private static final String VERSION = "V0.1.3";
 	private static final Color FOREGROUND_COLOR_VERSION = new Color(166, 166, 166);
 	private static final Color FOREGROUND_COLOR_TEXT = new Color(38, 38, 38);
-	
+
 	private static final Font FONT_VERSION = new Font("Calibri", Font.PLAIN, 12);
 	private static final Font FONT_MAIN_LABEL = new Font("Calibri", Font.BOLD, 28);
 	private static final Font FONT_USER_PASS = new Font("Calibri", Font.BOLD, 18);
-	
+
 	private static final String LOGO_PATH = "resources/assets/LogoAI_100_100.png";
 
 	private static final String LOGIN_LABEL = "Iniciar Sesion";
-	
-	private JTextField userField;	
+
+	private JTextField userField;
 	private JPasswordField passwordField;
 	private IRoundButtonListener listener;
 
@@ -92,7 +91,7 @@ public class LoginUI extends JFrame {
 		userField.setPreferredSize(new Dimension(100, 45));
 		userField.setBorder(new SearchBorder(10, FOREGROUND_COLOR_VERSION, false));
 
-		passwordField = new RoundedJPasswordField("ContraseÃ±a");
+		passwordField = new RoundedJPasswordField("Contraseña");
 		passwordField.setFont(FONT_USER_PASS);
 		passwordField.setForeground(FOREGROUND_COLOR_VERSION);
 		passwordField.setColumns(20);

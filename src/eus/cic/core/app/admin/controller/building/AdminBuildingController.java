@@ -1,22 +1,20 @@
 package eus.cic.core.app.admin.controller.building;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import eus.cic.core.app.admin.ui.building.AdminBuilding;
+import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.interfaces.IClickable;
+import eus.cic.core.app.interfaces.IRoundButtonListener;
 
-public class AdminBuildingController implements ActionListener, IClickable {
+public class AdminBuildingController implements IRoundButtonListener, IClickable {
 
-	AdminBuilding ui;
+	AdminBuildingUI ui;
 
-	public AdminBuildingController(AdminBuilding ui) {
+	public AdminBuildingController(AdminBuildingUI ui) {
 		this.ui = ui;
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
+	public void actionPerformed(String actionCommand) {
+		switch (actionCommand) {
 		case AdminBuildingControllerAC.ADD_BUILDING:
 			System.out.println("Add_Building");
 			break;
@@ -29,9 +27,9 @@ public class AdminBuildingController implements ActionListener, IClickable {
 			*/
 			System.out.println("Edit building");
 			break;
-		}
+		}		
 	}
-
+	
 	@Override
 	public void clicked() {
 		/* TODO crea una variable local en la que pilles el selected item, cuando le des a add building, si la variable != null 
@@ -39,5 +37,6 @@ public class AdminBuildingController implements ActionListener, IClickable {
 		*/
 		System.out.println("Dobbblee");
 	}
+
 
 }
