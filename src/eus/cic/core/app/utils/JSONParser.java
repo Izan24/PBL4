@@ -6,13 +6,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import eus.cic.core.app.connection.APIutils;
-import eus.cic.core.app.session.SessionHandler;
 import eus.cic.core.models.Building;
 import eus.cic.core.models.Room;
 import eus.cic.core.models.User;
 
 public class JSONParser {
+	
 	public static User parseUser(JSONObject json) {
 		String name = json.getString("name");
 		String surname = json.getString("surname");
