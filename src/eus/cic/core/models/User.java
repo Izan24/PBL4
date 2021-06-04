@@ -13,10 +13,11 @@ public class User {
 	String departamento;
 	String dni;
 	Boolean admin;
+	String email;
 	List<Room> permissions;
 
 	public User(String name, String surname, String postalCode, String address, String prefix,
-			String phoneNumber, String departamento, String dni, Boolean admin, List<Room> permissions) {
+			String phoneNumber, String email,String departamento, String dni, Boolean admin, List<Room> permissions) {
 		this.name = name;
 		this.surname = surname;
 		this.postalCode = postalCode;
