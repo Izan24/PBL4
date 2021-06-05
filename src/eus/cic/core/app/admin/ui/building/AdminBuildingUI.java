@@ -2,19 +2,27 @@ package eus.cic.core.app.admin.ui.building;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.border.MatteBorder;
 
 import eus.cic.core.app.admin.controller.building.AdminBuildingController;
 import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
+import eus.cic.core.app.uicomponents.borders.RoundedBorder;
 import eus.cic.core.app.uicomponents.borders.SearchBorder;
 import eus.cic.core.app.uicomponents.components.MDButton;
 import eus.cic.core.app.uicomponents.components.RoundedTextField;
@@ -34,8 +42,9 @@ public class AdminBuildingUI extends JPanel {
 	private static final String ADD_STRING = "Añadir";
 	private static final String REMOVE_STRING = "-";
 	private static final String EDIT_STRING = "...";
+	private static final String TITLE_STRING = "Edificios";
 
-	private static final Font TITLE_FONT = new Font("Calibri", Font.BOLD, 24);
+	private static final Font TITLE_FONT = new Font("Calibri", Font.BOLD, 45);
 	private static final Font FIELD_FONT = new Font("Calibri", Font.PLAIN, 18);
 
 	private static final Color BG_COLOR = Color.white;
@@ -45,11 +54,12 @@ public class AdminBuildingUI extends JPanel {
 	private static final Color FOREGROUND_COLOR_TEXT = new Color(38, 38, 38);
 	private static final Color BORDER_COLOR = new Color(166, 166, 166);
 
+	JLabel titleLabel;
 	JTextField postalCodeField, nameField;
 	MDButton addButton, removeButton, editButton;
 
 	public AdminBuildingUI() {
-		super(new GridLayout(1, 2));
+		super(new BorderLayout());
 		this.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 		this.setBackground(BG_COLOR);
 		this.setOpaque(true);
@@ -58,11 +68,13 @@ public class AdminBuildingUI extends JPanel {
 		clickListener = new DoubleClickListener(controller);
 
 		initJList();
+		initJLabels();
 		initButtons();
 		initTextFields();
 
-		this.add(createListButtonPanel());
-		this.add(createParameterPanel());
+		this.add(createListButtonPanel(), BorderLayout.CENTER);
+		this.add(createParameterPanel(), BorderLayout.EAST);
+		this.add(createTitlePanel(), BorderLayout.NORTH);
 	}
 
 	private void initJList() {
@@ -75,7 +87,12 @@ public class AdminBuildingUI extends JPanel {
 		buildings.setCellRenderer(renderer);
 		buildings.addMouseListener(clickListener);
 	}
-
+	
+	private void initJLabels() {
+		titleLabel = new JLabel(TITLE_STRING);
+		titleLabel.setFont(TITLE_FONT);
+	}
+	
 	private void initButtons() {
 		addButton = new MDButton(ADD_STRING, new Dimension(80, 40), ADD_COLOR, 10, controller,
 				AdminBuildingControllerAC.ADD_BUILDING);
@@ -105,15 +122,25 @@ public class AdminBuildingUI extends JPanel {
 
 	private JPanel createListButtonPanel() {
 		JPanel listPanel = new JPanel(new BorderLayout());
-		JPanel buttonPanel = new JPanel(new FlowLayout());
 
-		buttonPanel.add(removeButton);
-		buttonPanel.add(editButton);
-
-		listPanel.add(buttonPanel, BorderLayout.NORTH);
+		listPanel.add(createButtonPanel(), BorderLayout.NORTH);
 		listPanel.add(createBuildingsPanel(), BorderLayout.CENTER);
 
 		return listPanel;
+	}
+
+	private JPanel createButtonPanel() {
+		JPanel buttonPanel = new JPanel(new BorderLayout());
+		JPanel buttons = new JPanel(new FlowLayout());
+		buttonPanel.setBackground(BG_COLOR);
+		buttons.setBackground(BG_COLOR);
+
+		buttons.add(removeButton);
+		buttons.add(editButton);
+
+		buttonPanel.add(buttons, BorderLayout.EAST);
+
+		return buttonPanel;
 	}
 
 	private JScrollPane createBuildingsPanel() {
@@ -131,13 +158,35 @@ public class AdminBuildingUI extends JPanel {
 	}
 
 	private JPanel createParameterPanel() {
-		JPanel parameterPanel = new JPanel(new GridLayout(3, 1));
+		JPanel contentPanel = new JPanel(new GridBagLayout());
 
-		parameterPanel.add(postalCodeField);
-		parameterPanel.add(nameField);
-		parameterPanel.add(addButton);
+		contentPanel.setBackground(BG_COLOR);
+		contentPanel.setBorder(BorderFactory.createEmptyBorder(60, 40, 60, 40));
 
-		return parameterPanel;
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.fill = GridBagConstraints.HORIZONTAL;
+		constraints.weighty = 1;
+		constraints.weightx = 1;
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+
+		contentPanel.add(postalCodeField, constraints);
+		constraints.gridy = 1;
+		contentPanel.add(nameField, constraints);
+		constraints.gridy = 2;
+		contentPanel.add(addButton, constraints);
+
+		return contentPanel;
+	}
+
+	private Component createTitlePanel() {
+		JPanel titlePanel = new JPanel(new BorderLayout());
+		titlePanel.setBackground(BG_COLOR);
+		titlePanel.setBorder(new MatteBorder(0, 0, 1, 0, BORDER_COLOR));
+		
+		titlePanel.add(titleLabel, BorderLayout.WEST);
+		
+		return titlePanel;
 	}
 
 	public Building getSelectedValue() {
