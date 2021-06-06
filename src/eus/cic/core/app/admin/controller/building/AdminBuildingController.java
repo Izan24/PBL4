@@ -9,8 +9,8 @@ import eus.cic.core.models.Building;
 
 public class AdminBuildingController implements IRoundButtonListener, IClickable {
 
-	AdminBuildingUI ui;
 	Building oldBuilding;
+	AdminBuildingUI ui;
 	PrincipalWindow window;
 
 	private final String ERROR_MSG = "Los campos introducidos no son validos";
@@ -33,8 +33,11 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 			break;
 		case AdminBuildingControllerAC.EDIT_BUILDING:
 			oldBuilding = ui.getSelectedValue();
-			ui.setNameField(oldBuilding.getNombre());
-			ui.setPostalCodeField(oldBuilding.getPostalCode());
+			try {
+				ui.setNameField(oldBuilding.getNombre());
+				ui.setPostalCodeField(oldBuilding.getPostalCode());
+			} catch (NullPointerException e) {
+			}
 
 			break;
 		}
@@ -47,7 +50,7 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 
 			if (oldBuilding != null) {
 				if (!oldBuilding.equals(newBuilding)) {
-					ui.updateValue(oldBuilding, newBuilding);
+					ui.updateBuilding(oldBuilding, newBuilding);
 					ui.resetFields();
 					oldBuilding = null;
 				} else {

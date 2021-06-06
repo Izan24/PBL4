@@ -28,7 +28,6 @@ public class BuildingList extends AbstractListModel<Building> {
 
 	public void removeElement(Building element) throws IndexOutOfBoundsException {
 		if (element != null) {
-			System.out.println("Index del elemento: " + list.indexOf(element));
 			list.remove(list.indexOf(element));
 			this.fireContentsChanged(this, 0, list.size() - 1);
 		}

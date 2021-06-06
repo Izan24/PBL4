@@ -226,14 +226,6 @@ public class AdminBuildingUI extends JPanel {
 		return buildings.getSelectedValue();
 	}
 
-	public void addBuilding(Building building) {
-		listModel.addElement(building);
-	}
-
-	public void removeBuilding() {
-		listModel.removeElement(buildings.getSelectedValue());
-	}
-
 	public String getName() {
 		return nameField.getText();
 	}
@@ -250,7 +242,15 @@ public class AdminBuildingUI extends JPanel {
 		postalCodeField.setText(text);
 	}
 
-	public void updateValue(Building oldValue, Building newValue) {
+	public void addBuilding(Building building) {
+		listModel.addElement(building);
+	}
+
+	public void removeBuilding() {
+		listModel.removeElement(buildings.getSelectedValue());
+	}
+
+	public void updateBuilding(Building oldValue, Building newValue) {
 		listModel.removeElement(oldValue);
 		listModel.addElement(newValue);
 	}
