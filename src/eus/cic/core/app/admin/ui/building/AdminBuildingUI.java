@@ -255,4 +255,9 @@ public class AdminBuildingUI extends JPanel {
 		listModel.addElement(newValue);
 	}
 
+	public void resetFields() {
+		nameField.setText("");
+		postalCodeField.setText("");
+	}
+
 }

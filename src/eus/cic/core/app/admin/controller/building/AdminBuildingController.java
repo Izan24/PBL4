@@ -48,12 +48,14 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 			if (oldBuilding != null) {
 				if (!oldBuilding.equals(newBuilding)) {
 					ui.updateValue(oldBuilding, newBuilding);
+					ui.resetFields();
 					oldBuilding = null;
 				} else {
 					new CreationErrorDialog(window, "Error: iguales", true, EQUAL_MSG);
 				}
 			} else {
 				ui.addBuilding(newBuilding);
+				ui.resetFields();
 			}
 		} else {
 			new CreationErrorDialog(window, "Error: campos", true, ERROR_MSG);
