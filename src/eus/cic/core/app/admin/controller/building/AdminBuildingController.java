@@ -13,6 +13,8 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 	Building oldBuilding;
 	PrincipalWindow window;
 
+	private final String ERROR_MSG = "Los campos introducidos no son validos";
+
 	public AdminBuildingController(AdminBuildingUI ui, PrincipalWindow window) {
 		this.ui = ui;
 		this.window = window;
@@ -37,8 +39,6 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 		}
 	}
 
-	// TODO: Hcer una comprobacion de que no esté vacio y que no sea el texto
-	// default
 	private void addBuilding() {
 
 		if (checkValues()) {
@@ -53,15 +53,18 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 				ui.addBuilding(newBuilding);
 			}
 		} else {
-			// Error dialog
-			new CreationErrorDialog(window, "Error: conexion", true, "Error de prueba");
-			System.out.println("Error dialog");
+			new CreationErrorDialog(window, "Error: campos", true, ERROR_MSG);
 		}
 
 	}
 
 	private boolean checkValues() {
-		return false;
+		Boolean valid = true;
+
+		if (ui.getName().replaceAll("\\s", "").equals("") || ui.getPostalCode().replaceAll("\\s", "").equals(""))
+			valid = false;
+
+		return valid;
 	}
 
 	@Override
