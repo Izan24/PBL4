@@ -10,6 +10,7 @@ import javax.swing.border.MatteBorder;
 
 import eus.cic.core.app.uicomponents.components.MDButtonPanel;
 import eus.cic.core.app.user.controller.UserUIController;
+import eus.cic.core.app.user.ui.profile.UserProfileUI;
 
 public class UserUI extends JPanel {
 	
@@ -23,7 +24,8 @@ public class UserUI extends JPanel {
 		super(new BorderLayout());
 		controller = new UserUIController(this);
 		this.setBackground(BG_COLOR);
-		this.add(createUserToolbar());
+		this.add(createUserToolbar(), BorderLayout.NORTH);
+		this.add(new UserProfileUI(), BorderLayout.CENTER);
 		this.repaint();
 		this.revalidate();
 	}
