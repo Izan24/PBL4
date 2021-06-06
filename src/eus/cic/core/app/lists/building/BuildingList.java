@@ -10,33 +10,34 @@ import eus.cic.core.models.Building;
 public class BuildingList extends AbstractListModel<Building> {
 
 	List<Building> list;
-	
+
 	public BuildingList() {
 		list = new ArrayList<>();
 	}
-	
+
 	public void setList(List<Building> list) {
 		this.list = list;
 	}
-	
+
 	public void addElement(Building element) {
-		if(element != null) {
+		if (element != null) {
 			list.add(element);
 			this.fireContentsChanged(this, 0, list.size() - 1);
 		}
 	}
-	
-	public void removeElement(Building element) throws IndexOutOfBoundsException{
+
+	public void removeElement(Building element) throws IndexOutOfBoundsException {
 		if (element != null) {
+			System.out.println("Index del elemento: " + list.indexOf(element));
 			list.remove(list.indexOf(element));
 			this.fireContentsChanged(this, 0, list.size() - 1);
 		}
 	}
-	
-	public List<Building> getList(){
+
+	public List<Building> getList() {
 		return list;
 	}
-	
+
 	@Override
 	public int getSize() {
 		return list.size();

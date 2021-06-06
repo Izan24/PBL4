@@ -16,54 +16,59 @@ import eus.cic.core.app.admin.controller.AdminUIController;
 import eus.cic.core.app.admin.controller.AdminUIControllerAC;
 import eus.cic.core.app.admin.controller.building.AdminBuildingController;
 import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
+import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.components.MDButton;
 
 public class AdminUI extends JPanel {
-	
+
 	public static final String ADMIN_STRING = "Administrador";
 	public static final String MENU_STRING = "Menu";
 	public static final Font FONT = new Font("Calibri", Font.PLAIN, 22);
 	public static final Color BG_COLOR = Color.WHITE;
 	public static final Color HOMO_COLOR = new Color(46, 117, 182);
-	
+
 	public JPanel toolbar;
 	public JButton homeButton;
 	private AdminUIController controller;
-	
-	
-	public AdminUI() {
+	private PrincipalWindow window;
+
+	public AdminUI(PrincipalWindow window) {
 		super(new BorderLayout());
+		
+		this.window = window;
+		controller = new AdminUIController(this, window);
+		
 		initHomeButton();
-		controller = new AdminUIController(this);
+		
 		this.setBackground(BG_COLOR);
 		this.add(createAdminToolbar(), BorderLayout.NORTH);
-		this.add(new AdminBuildingUI(), BorderLayout.CENTER);
+		this.add(new AdminBuildingUI(window), BorderLayout.CENTER);
 		this.setBorder(new EmptyBorder(20, 20, 20, 20));
 		this.repaint();
 		this.revalidate();
 	}
-	
+
 	public void setCenterPanel(JPanel centerPanel) {
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.revalidate();
 		this.repaint();
 	}
-	
+
 	public void enableHome() {
 		homeButton.setVisible(true);
 		homeButton.setEnabled(true);
 	}
-	
+
 	public void disableHome() {
 		homeButton.setVisible(false);
 		homeButton.setEnabled(false);
 	}
-	
+
 	private void initHomeButton() {
-		homeButton = new MDButton(MENU_STRING, new Dimension(100, 30), HOMO_COLOR, 10, controller, AdminUIControllerAC.MENU);
+		homeButton = new MDButton(MENU_STRING, new Dimension(100, 30), HOMO_COLOR, 10, controller,
+				AdminUIControllerAC.MENU);
 	}
-	
-	
+
 	private JPanel createAdminToolbar() {
 		toolbar = new JPanel(new BorderLayout());
 		JPanel tempPanel = new JPanel();
@@ -76,10 +81,7 @@ public class AdminUI extends JPanel {
 		toolbar.setBorder(new MatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY));
 		return toolbar;
 	}
-	
-	
-	
-	
+
 	private JButton createAdminButton() {
 		JButton tempButton = new JButton(ADMIN_STRING);
 		tempButton.setBackground(BG_COLOR);

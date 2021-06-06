@@ -25,6 +25,7 @@ import eus.cic.core.app.admin.controller.building.AdminBuildingController;
 import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
 import eus.cic.core.app.lists.building.BuildingList;
 import eus.cic.core.app.lists.building.BuildingListRenderer;
+import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.borders.RoundedBorder;
 import eus.cic.core.app.uicomponents.borders.SearchBorder;
 import eus.cic.core.app.uicomponents.components.MDButton;
@@ -63,13 +64,13 @@ public class AdminBuildingUI extends JPanel {
 	JTextField postalCodeField, nameField;
 	MDButton addButton, removeButton, editButton;
 
-	public AdminBuildingUI() {
+	public AdminBuildingUI(PrincipalWindow window) {
 		super(new BorderLayout());
 		this.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 		this.setBackground(BG_COLOR);
 		this.setOpaque(true);
 
-		controller = new AdminBuildingController(this);
+		controller = new AdminBuildingController(this, window);
 		clickListener = new DoubleClickListener(controller);
 
 		initJList();
