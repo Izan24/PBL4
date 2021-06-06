@@ -3,6 +3,7 @@ package eus.cic.core.app.admin.controller.building;
 import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.interfaces.IClickable;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
+import eus.cic.core.models.Building;
 
 public class AdminBuildingController implements IRoundButtonListener, IClickable {
 
@@ -17,9 +18,11 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 		switch (actionCommand) {
 		case AdminBuildingControllerAC.ADD_BUILDING:
 			System.out.println("Add_Building");
+			addBuilding();
 			break;
 		case AdminBuildingControllerAC.REMOVE_BUILDING:
 			System.out.println("RemoveBuilding");
+			ui.removeBuilding();
 			break;
 		case AdminBuildingControllerAC.EDIT_BUILDING:
 			/* TODO crea una variable local en la que pilles el selected item, cuando le des a add building, si la variable != null 
@@ -30,6 +33,12 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 		}		
 	}
 	
+	//TODO: Hcer una comprobacion de que no esté vacio y que no sea el texto default
+	private void addBuilding() {
+		Building newBuilding = new Building(ui.getPostalCode(), ui.getName());
+		ui.addBuilding(newBuilding);
+	}
+
 	@Override
 	public void clicked() {
 		/* TODO crea una variable local en la que pilles el selected item, cuando le des a add building, si la variable != null 

@@ -87,12 +87,12 @@ public class AdminBuildingUI extends JPanel {
 		buildings.setCellRenderer(renderer);
 		buildings.addMouseListener(clickListener);
 	}
-	
+
 	private void initJLabels() {
 		titleLabel = new JLabel(TITLE_STRING);
 		titleLabel.setFont(TITLE_FONT);
 	}
-	
+
 	private void initButtons() {
 		addButton = new MDButton(ADD_STRING, new Dimension(80, 40), ADD_COLOR, 10, controller,
 				AdminBuildingControllerAC.ADD_BUILDING);
@@ -183,14 +183,38 @@ public class AdminBuildingUI extends JPanel {
 		JPanel titlePanel = new JPanel(new BorderLayout());
 		titlePanel.setBackground(BG_COLOR);
 		titlePanel.setBorder(new MatteBorder(0, 0, 1, 0, BORDER_COLOR));
-		
+
 		titlePanel.add(titleLabel, BorderLayout.WEST);
-		
+
 		return titlePanel;
 	}
 
 	public Building getSelectedValue() {
 		return buildings.getSelectedValue();
+	}
+
+	public void addBuilding(Building building) {
+		listModel.addElement(building);
+	}
+
+	public void removeBuilding() {
+		listModel.removeElement(buildings.getSelectedValue());
+	}
+
+	public String getName() {
+		return nameField.getText();
+	}
+
+	public String getPostalCode() {
+		return postalCodeField.getText();
+	}
+
+	public void setNameField(String text) {
+		nameField.setText(text);
+	}
+
+	public void setPostalCodeField(String text) {
+		postalCodeField.setText(text);
 	}
 
 	public void updateValue(Building oldValue, Building newValue) {

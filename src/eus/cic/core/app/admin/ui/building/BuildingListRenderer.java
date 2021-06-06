@@ -1,5 +1,6 @@
 package eus.cic.core.app.admin.ui.building;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 
@@ -17,6 +18,10 @@ public class BuildingListRenderer implements ListCellRenderer<Building>{
 			boolean isSelected, boolean cellHasFocus) {
 		JPanel panel = new JPanel(new FlowLayout());
 		JLabel buildingName = new JLabel(value.getNombre());
+		
+		
+		if (isSelected) panel.setBackground(Color.LIGHT_GRAY);
+		else panel.setBackground(Color.WHITE);
 		
 		panel.add(buildingName);
 		

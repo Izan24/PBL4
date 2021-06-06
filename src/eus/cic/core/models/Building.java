@@ -11,6 +11,11 @@ public class Building {
 		this.name = name;
 	}
 
+	public Building(String postalCode, String name) {
+		this.postalCode = postalCode;
+		this.name = name;
+	}
+
 	public Integer getBuildingId() {
 		return buildingId;
 	}
