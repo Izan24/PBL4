@@ -1,4 +1,4 @@
-package eus.cic.core.app.admin.ui.building;
+package eus.cic.core.app.lists.building;
 
 import java.util.ArrayList;
 import java.util.List;

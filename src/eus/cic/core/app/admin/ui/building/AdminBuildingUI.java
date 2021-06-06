@@ -22,6 +22,8 @@ import javax.swing.border.MatteBorder;
 
 import eus.cic.core.app.admin.controller.building.AdminBuildingController;
 import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
+import eus.cic.core.app.lists.building.BuildingList;
+import eus.cic.core.app.lists.building.BuildingListRenderer;
 import eus.cic.core.app.uicomponents.borders.RoundedBorder;
 import eus.cic.core.app.uicomponents.borders.SearchBorder;
 import eus.cic.core.app.uicomponents.components.MDButton;
