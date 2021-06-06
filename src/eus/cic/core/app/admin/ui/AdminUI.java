@@ -25,21 +25,19 @@ public class AdminUI extends JPanel {
 	public static final String MENU_STRING = "Menu";
 	public static final Font FONT = new Font("Calibri", Font.PLAIN, 22);
 	public static final Color BG_COLOR = Color.WHITE;
-	public static final Color HOMO_COLOR = new Color(46, 117, 182);
+	public static final Color HOME_COLOR = new Color(46, 117, 182);
 
 	public JPanel toolbar;
 	public JButton homeButton;
 	private AdminUIController controller;
-	private PrincipalWindow window;
 
 	public AdminUI(PrincipalWindow window) {
 		super(new BorderLayout());
-		
-		this.window = window;
+
 		controller = new AdminUIController(this, window);
-		
+
 		initHomeButton();
-		
+
 		this.setBackground(BG_COLOR);
 		this.add(createAdminToolbar(), BorderLayout.NORTH);
 		this.add(new AdminBuildingUI(window), BorderLayout.CENTER);
@@ -65,7 +63,7 @@ public class AdminUI extends JPanel {
 	}
 
 	private void initHomeButton() {
-		homeButton = new MDButton(MENU_STRING, new Dimension(100, 30), HOMO_COLOR, 10, controller,
+		homeButton = new MDButton(MENU_STRING, new Dimension(100, 30), HOME_COLOR, 10, controller,
 				AdminUIControllerAC.MENU);
 	}
 

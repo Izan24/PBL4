@@ -23,7 +23,6 @@ public class AdminUIController implements ActionListener, IRoundButtonListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		switch (e.getActionCommand()) {
 		case AdminUIControllerAC.BUILDINGS:
 			if (buildingUI == null) {
@@ -67,6 +66,7 @@ public class AdminUIController implements ActionListener, IRoundButtonListener {
 			break;
 		case AdminUIControllerAC.MENU:
 			ui.disableHome();
+			System.out.println("menu");
 			// ui.setCenterPanel(centerPanel); //Poner panel menu;
 
 			break;
