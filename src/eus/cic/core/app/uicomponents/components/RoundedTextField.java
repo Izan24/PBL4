@@ -20,6 +20,12 @@ public class RoundedTextField extends JTextField implements FocusListener {
 		super.setMargin(new Insets(4, 8, 4, 8));
 		super.addFocusListener(this);
 	}
+	
+	public RoundedTextField() {
+		this.hint = "";
+		super.setMargin(new Insets(4, 8, 4, 8));
+		super.addFocusListener(this);
+	}
 
 	@Override
 	public void focusGained(FocusEvent e) {
