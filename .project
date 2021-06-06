@@ -20,4 +20,11 @@
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>resources/assets/user.png</name>
+			<type>1</type>
+			<location>C:/Users/giorg/Desktop/PBL4/resources/assets/user.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -33,7 +33,7 @@ public class UserUIController implements ActionListener {
 
 			break;
 		case UserUIControllerAC.PROFILE:
-			ui.setCenterPanel(new UserProfileUI());
+			
 			break;
 		default:
 			break;
