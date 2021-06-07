@@ -14,7 +14,7 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 	PrincipalWindow window;
 
 	private final String ERROR_MSG = "Los campos introducidos no son validos";
-	private final String EQUAL_MSG = " \"No has realizado ningun cambio\"";
+	private final String EQUAL_MSG = "No has realizado ningun cambio";
 
 	public AdminBuildingController(AdminBuildingUI ui, PrincipalWindow window) {
 		this.ui = ui;
@@ -29,6 +29,7 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 			addBuilding();
 			break;
 		case AdminBuildingControllerAC.REMOVE_BUILDING:
+			// server
 			ui.removeBuilding();
 			break;
 		case AdminBuildingControllerAC.EDIT_BUILDING:
@@ -50,6 +51,7 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 
 			if (oldBuilding != null) {
 				if (!oldBuilding.equals(newBuilding)) {
+					// Server
 					ui.updateBuilding(oldBuilding, newBuilding);
 					ui.resetFields();
 					oldBuilding = null;
