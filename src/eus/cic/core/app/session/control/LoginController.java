@@ -36,7 +36,7 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 
 	public static void getLogin() {
 		LoginController con = new LoginController();
-		while (!con.isLogged());
+		while (!con.isLogged()) System.out.println(con.isLogged());;
 	}
 
 	public static void main(String[] args) {
@@ -48,8 +48,8 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 		form.put("user", user).put("pass", pass);
 		if (!locked) {
 			JSONObject response = APIutils.postRequest("/api/login", form);
-
-			if (!response.getString("status").equals("success")) {
+			System.out.println(response.toString());
+			if (!(response.getString("status").equals("ok"))) {
 				new CreationErrorDialog(vista, "Error: conexion", true, ERROR_STRING);
 				return null;
 			} else {
@@ -60,7 +60,7 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 					badCount++;
 					if (badCount >= 5) {
 						locked = true;
-						timer = new Timer(1000, this);
+						timer = new Timer(300000, this);
 						timer.start();
 					}
 					return null;
@@ -71,6 +71,17 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 		}
 
 		return null;
+	}
+	
+	private void sendReq() {
+		String user = vista.getUser();
+		String pass = vista.getPassword();
+		JSONObject json = sendLoginRequest(user, pass);
+		if (!(json == null)) {
+			SessionHandler.setSession(json.getString("session"), json.getInt("user_id"));
+			logged = true;
+			vista.dispose();
+		}
 	}
 
 	public Boolean isLogged() {
@@ -84,17 +95,6 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 			timer.stop();
 			timer = null;
 			badCount = 0;
-		}
-	}
-
-	private void sendReq() {
-		String user = vista.getUser();
-		String pass = vista.getPassword();
-		JSONObject json = sendLoginRequest(user, pass);
-		if (!(json == null)) {
-			SessionHandler.setSession(json.getString("session"), json.getInt("user_id"));
-			vista.dispose();
-			logged = true;
 		}
 	}
 

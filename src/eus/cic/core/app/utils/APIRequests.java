@@ -53,8 +53,10 @@ public class APIRequests {
 	public static User getUser(Integer user_id) throws SessionException {
 		User user = null;
 		JSONObject response = APIutils
-				.getRequest("/api/getUser?id=" + user_id + "&session=" + SessionHandler.getSession());
+				.getRequest("/api/userById?id=" + user_id + "&session=" + SessionHandler.getSession());
+		System.out.println(response.toString());
 		if (response.getString("status").equals("ok")) {
+			System.out.println("Siosi");
 			user = JSONParser.parseUser((response.getJSONObject("user")));
 		}else {
 			throw new SessionException();
