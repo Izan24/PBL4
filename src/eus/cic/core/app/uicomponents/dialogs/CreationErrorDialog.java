@@ -7,6 +7,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -20,7 +22,7 @@ import javax.swing.border.EmptyBorder;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 import eus.cic.core.app.uicomponents.components.MDButton;
 
-public class CreationErrorDialog extends JDialog implements IRoundButtonListener {
+public class CreationErrorDialog extends JDialog implements IRoundButtonListener, KeyListener {
 
 	private static final long serialVersionUID = 5750206798109947882L;
 
@@ -49,10 +51,12 @@ public class CreationErrorDialog extends JDialog implements IRoundButtonListener
 				frame.getY() + (frame.getHeight() / 2) - (this.getHeight() / 2));
 
 		this.setVisible(true);
+		this.addKeyListener(this);
 	}
 
 	private void initJbuttons() {
 		confirmButton = new MDButton("Aceptar", new Dimension(100, 30), MDButton.RED, 20, this, DISPOSE_COMAND);
+		confirmButton.addKeyListener(this);
 	}
 
 	private void initJlabels() {
@@ -106,5 +110,21 @@ public class CreationErrorDialog extends JDialog implements IRoundButtonListener
 			break;
 		}
 	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			this.dispose();		
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {		
+	}
+	
 
 }
