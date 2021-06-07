@@ -14,18 +14,18 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import eus.cic.core.app.admin.controller.menu.AdminMenuUIController;
+import eus.cic.core.app.admin.controller.menu.AdminMenuController;
 
-public class AdminMenuUI extends JPanel {
+public class AdminMenu extends JPanel {
 
 	private static final Color BG_COLOR = Color.white;
 	
-	AdminMenuUIController controller;
+	AdminMenuController controller;
 
-	public AdminMenuUI() {
+	public AdminMenu() {
 		super(new GridBagLayout());
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-		controller = new AdminMenuUIController(this);
+		controller = new AdminMenuController(this);
 		this.setBackground(BG_COLOR);
 		this.setOpaque(true);	
 		
