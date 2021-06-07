@@ -15,6 +15,7 @@ public class Building {
 		return buildingId;
 	}
 
+
 	public String getPostalCode() {
 		return postalCode;
 	}
