@@ -8,9 +8,9 @@ import eus.cic.core.models.User;
 public class Application {
 
 	public static void main(String[] args) {
-		//LoginController.getLogin();
-		PrincipalWindow win = new PrincipalWindow(null);
-		//User user = SessionHandler.getUser();
+		LoginController.getLogin();
+		User user = SessionHandler.getUser();
+		PrincipalWindow win = new PrincipalWindow(user);
 	}
 
 }
