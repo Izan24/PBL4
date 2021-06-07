@@ -15,19 +15,21 @@ public class WindowController {
 	public WindowController(PrincipalWindow window, User user) {
 		this.user = user;
 		this.window = window;
-		initUI();
+		// initUI();
 		setStartView();
 		window.repaint();
 		window.revalidate();
 	}
 
 	private void initUI() {
-		if (user.isAdmin()) ui = new AdminUI();
-		else ui = new UserUI();
+		if (user.isAdmin())
+			ui = new AdminUI(window);
+		else
+			ui = new UserUI();
 	}
 
 	private void setStartView() {
-		window.setContentPane(ui);
-		//window.setContentPane(new UserUI());
+		window.setContentPane(new AdminUI(window));
+		// window.setContentPane(new UserUI());
 	}
 }
