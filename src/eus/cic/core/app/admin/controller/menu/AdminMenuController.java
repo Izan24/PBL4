@@ -19,39 +19,40 @@ public class AdminMenuController implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 
 		switch (event.getActionCommand()) {
-		case "Edificios":
+
+		case AdminMenuControllerAC.BUILDINGS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Salas":
+		case AdminMenuControllerAC.ROOMS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Trabajadores":
+		case AdminMenuControllerAC.WORKERS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Reservas":
+		case AdminMenuControllerAC.BOOKINGS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Tarjetas":
+		case AdminMenuControllerAC.CARDS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Proyectos":
+		case AdminMenuControllerAC.PERMISSIONS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Permisos":
+		case AdminMenuControllerAC.PROJECTS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Fichas":
+		case AdminMenuControllerAC.CHECKINS:
 			System.out.println(event.getActionCommand());
 			break;
 
-		case "Bonos":
+		case AdminMenuControllerAC.BONDS:
 			System.out.println(event.getActionCommand());
 			break;
 
