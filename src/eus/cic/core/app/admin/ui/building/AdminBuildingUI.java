@@ -92,6 +92,7 @@ public class AdminBuildingUI extends JPanel {
 		buildings.setModel(listModel);
 		buildings.setCellRenderer(renderer);
 		buildings.addMouseListener(clickListener);
+		buildings.addKeyListener(controller);
 	}
 
 	private void initJLabels() {
@@ -122,6 +123,7 @@ public class AdminBuildingUI extends JPanel {
 		postalCodeField.setBackground(Color.WHITE);
 		postalCodeField.setPreferredSize(new Dimension(100, 45));
 		postalCodeField.setBorder(new SearchBorder(10, BORDER_COLOR, false));
+		postalCodeField.addKeyListener(controller);
 
 		nameField = new RoundedTextField();
 		nameField.setFont(FIELD_FONT);
@@ -130,6 +132,7 @@ public class AdminBuildingUI extends JPanel {
 		nameField.setBackground(Color.WHITE);
 		nameField.setPreferredSize(new Dimension(100, 45));
 		nameField.setBorder(new SearchBorder(10, BORDER_COLOR, false));
+		nameField.addKeyListener(controller);
 	}
 
 	private JPanel createListButtonPanel() {

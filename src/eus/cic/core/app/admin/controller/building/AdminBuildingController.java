@@ -1,5 +1,8 @@
 package eus.cic.core.app.admin.controller.building;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.interfaces.IClickable;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
@@ -7,7 +10,7 @@ import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.dialogs.CreationErrorDialog;
 import eus.cic.core.models.Building;
 
-public class AdminBuildingController implements IRoundButtonListener, IClickable {
+public class AdminBuildingController implements IRoundButtonListener, IClickable, KeyListener {
 
 	Building oldBuilding;
 	AdminBuildingUI ui;
@@ -81,6 +84,26 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 		oldBuilding = ui.getSelectedValue();
 		ui.setNameField(oldBuilding.getNombre());
 		ui.setPostalCodeField(oldBuilding.getPostalCode());
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_ENTER:
+			addBuilding();
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
 	}
 
 }
