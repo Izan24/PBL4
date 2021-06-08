@@ -32,11 +32,11 @@ public class UserUI extends JPanel {
 		this.setBackground(BG_COLOR);
 		this.add(createUserToolbar(), BorderLayout.NORTH);
 		
-		List<Room> list = new ArrayList<>();
-		list.add(new Room("description", "1", "2", true));
-		list.add(new Room("descrption", "4", "3", true));
+		//List<Room> list = new ArrayList<>();
+		//list.add(new Room("description", "1", "2", true));
+		//list.add(new Room("descrption", "4", "3", true));
 		
-		this.add(new UserProfileUI(new User("p", "e", "r", "23", "45", "5555", "77@", "departamento", "dni", false, list)), BorderLayout.CENTER);
+		//this.add(new UserProfileUI(new User("p", "e", "r", "23", "45", "5555", "77@", "departamento", "dni", false, list)), BorderLayout.CENTER);
 		
 		this.repaint();
 		this.revalidate();

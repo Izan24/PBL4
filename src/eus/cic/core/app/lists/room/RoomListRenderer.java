@@ -23,7 +23,7 @@ public class RoomListRenderer implements ListCellRenderer<Room> {
 			boolean cellHasFocus) {
 		JPanel panel = new JPanel(new GridLayout(3, 1));
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-		JLabel building = new JLabel("Edificio: " + value.getBuildingId());
+		JLabel building = new JLabel("Edificio: " + value.getBuilding());
 		building.setFont(FONT);
 		JLabel floor = new JLabel("Planta: " + value.getFloor());
 		floor.setFont(FONT);
