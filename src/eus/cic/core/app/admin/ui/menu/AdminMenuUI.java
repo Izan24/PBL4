@@ -16,13 +16,13 @@ import javax.swing.JPanel;
 
 import eus.cic.core.app.admin.controller.menu.AdminMenuController;
 
-public class AdminMenu extends JPanel {
+public class AdminMenuUI extends JPanel {
 
 	private static final Color BG_COLOR = Color.white;
 	
 	AdminMenuController controller;
 
-	public AdminMenu() {
+	public AdminMenuUI() {
 		super(new GridBagLayout());
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		controller = new AdminMenuController(this);

@@ -3,14 +3,14 @@ package eus.cic.core.app.admin.controller.menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import eus.cic.core.app.admin.ui.menu.AdminMenu;
+import eus.cic.core.app.admin.ui.menu.AdminMenuUI;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 
 public class AdminMenuController implements ActionListener {
 
-	AdminMenu adminMenuUI;
+	AdminMenuUI adminMenuUI;
 
-	public AdminMenuController(AdminMenu adminMenuUI) {
+	public AdminMenuController(AdminMenuUI adminMenuUI) {
 		this.adminMenuUI = adminMenuUI;
 
 	}
