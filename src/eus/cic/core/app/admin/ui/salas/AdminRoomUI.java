@@ -9,8 +9,11 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -22,28 +25,32 @@ import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
 import eus.cic.core.app.admin.controller.rooms.AdminRoomController;
 import eus.cic.core.app.lists.building.BuildingList;
 import eus.cic.core.app.lists.building.BuildingListRenderer;
+import eus.cic.core.app.lists.room.RoomList;
+import eus.cic.core.app.lists.room.RoomListRenderer;
 import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.borders.SearchBorder;
 import eus.cic.core.app.uicomponents.components.MDButton;
 import eus.cic.core.app.uicomponents.components.RoundedTextField;
 import eus.cic.core.app.utils.DoubleClickListener;
 import eus.cic.core.models.Building;
+import eus.cic.core.models.Room;
 
 public class AdminRoomUI extends JPanel {
 	AdminRoomController controller;
 
-	JList<Building> buildings;
-	BuildingList listModel;
-	BuildingListRenderer renderer;
+	JList<Room> rooms;
+	RoomList listModel;
+	RoomListRenderer renderer;
 
 	DoubleClickListener clickListener;
 
 	private static final String ADD_STRING = "Añadir";
 	private static final String REMOVE_STRING = "-";
 	private static final String EDIT_STRING = "...";
-	private static final String TITLE_STRING = "Edificios";
-	private static final String NAME_STRING = "Nombre:";
-	private static final String PCODE_STRING = "Codigo postal:";
+	private static final String TITLE_STRING = "Salas";
+	private static final String DESCRIPTION_STRING = "Descripcion:";
+	private static final String BUILDING_STRING = "Edificio:";
+	private static final String FLOOR_STRING = "Piso:";
 
 	private static final Font TITLE_FONT = new Font("Calibri", Font.BOLD, 45);
 	private static final Font FIELD_FONT = new Font("Calibri", Font.PLAIN, 18);
@@ -55,8 +62,9 @@ public class AdminRoomUI extends JPanel {
 	private static final Color FOREGROUND_COLOR_TEXT = new Color(38, 38, 38);
 	private static final Color BORDER_COLOR = new Color(166, 166, 166);
 
-	JLabel titleLabel, nameLabel, postalCodeLabel;
-	JTextField postalCodeField, nameField;
+	JLabel titleLabel, floorLabel, descriptionLabel, buildingLabel;
+	JTextField descriptionField, floorField;
+	JComboBox<Building> buildingBox;
 	MDButton addButton, removeButton, editButton;
 
 	public AdminRoomUI(PrincipalWindow window) {
@@ -71,6 +79,7 @@ public class AdminRoomUI extends JPanel {
 		initJList();
 		initJLabels();
 		initButtons();
+		initComboBox();
 		initTextFields();
 
 		this.add(createListButtonPanel(), BorderLayout.CENTER);
@@ -79,26 +88,29 @@ public class AdminRoomUI extends JPanel {
 	}
 
 	private void initJList() {
-		buildings = new JList<>();
-		listModel = new BuildingList();
-		// listModel.setList(JSONCalls.getBuildings());
-		renderer = new BuildingListRenderer();
+		rooms = new JList<>();
+		listModel = new RoomList();
+		// listModel.setList(JSONCalls.getRooms());
+		renderer = new RoomListRenderer();
 
-		buildings.setModel(listModel);
-		buildings.setCellRenderer(renderer);
-		buildings.addMouseListener(clickListener);
-		buildings.addKeyListener(controller);
+		rooms.setModel(listModel);
+		rooms.setCellRenderer(renderer);
+		rooms.addMouseListener(clickListener);
+		rooms.addKeyListener(controller);
 	}
 
 	private void initJLabels() {
 		titleLabel = new JLabel(TITLE_STRING);
 		titleLabel.setFont(TITLE_FONT);
 
-		nameLabel = new JLabel(NAME_STRING);
-		nameLabel.setFont(FIELD_FONT);
+		descriptionLabel = new JLabel(DESCRIPTION_STRING);
+		descriptionLabel.setFont(FIELD_FONT);
 
-		postalCodeLabel = new JLabel(PCODE_STRING);
-		postalCodeLabel.setFont(FIELD_FONT);
+		buildingLabel = new JLabel(BUILDING_STRING);
+		buildingLabel.setFont(FIELD_FONT);
+
+		floorLabel = new JLabel(FLOOR_STRING);
+		floorLabel.setFont(FIELD_FONT);
 	}
 
 	private void initButtons() {
@@ -110,24 +122,32 @@ public class AdminRoomUI extends JPanel {
 				AdminBuildingControllerAC.EDIT_BUILDING);
 	}
 
-	private void initTextFields() {
-		postalCodeField = new RoundedTextField();
-		postalCodeField.setFont(FIELD_FONT);
-		postalCodeField.setForeground(FOREGROUND_COLOR_TEXT);
-		postalCodeField.setColumns(20);
-		postalCodeField.setBackground(Color.WHITE);
-		postalCodeField.setPreferredSize(new Dimension(100, 45));
-		postalCodeField.setBorder(new SearchBorder(10, BORDER_COLOR, false));
-		postalCodeField.addKeyListener(controller);
+	private void initComboBox() {
+		// List<Room> rooms = Jsoncalls()..;
+		// List<Room> rooms = new ArrayList<>();
 
-		nameField = new RoundedTextField();
-		nameField.setFont(FIELD_FONT);
-		nameField.setForeground(FOREGROUND_COLOR_TEXT);
-		nameField.setColumns(20);
-		nameField.setBackground(Color.WHITE);
-		nameField.setPreferredSize(new Dimension(100, 45));
-		nameField.setBorder(new SearchBorder(10, BORDER_COLOR, false));
-		nameField.addKeyListener(controller);
+		buildingBox = new JComboBox<>();
+		// roomBox.add(rooms);
+	}
+
+	private void initTextFields() {
+		descriptionField = new RoundedTextField();
+		descriptionField.setFont(FIELD_FONT);
+		descriptionField.setForeground(FOREGROUND_COLOR_TEXT);
+		descriptionField.setColumns(20);
+		descriptionField.setBackground(Color.WHITE);
+		descriptionField.setPreferredSize(new Dimension(100, 45));
+		descriptionField.setBorder(new SearchBorder(10, BORDER_COLOR, false));
+		descriptionField.addKeyListener(controller);
+
+		floorField = new RoundedTextField();
+		floorField.setFont(FIELD_FONT);
+		floorField.setForeground(FOREGROUND_COLOR_TEXT);
+		floorField.setColumns(20);
+		floorField.setBackground(Color.WHITE);
+		floorField.setPreferredSize(new Dimension(100, 45));
+		floorField.setBorder(new SearchBorder(10, BORDER_COLOR, false));
+		floorField.addKeyListener(controller);
 	}
 
 	private JPanel createListButtonPanel() {
@@ -162,7 +182,7 @@ public class AdminRoomUI extends JPanel {
 
 		ingredientListPanel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
 
-		ingredientListPanel.setViewportView(buildings);
+		ingredientListPanel.setViewportView(rooms);
 
 		return ingredientListPanel;
 	}
@@ -180,33 +200,53 @@ public class AdminRoomUI extends JPanel {
 		constraints.gridx = 0;
 		constraints.gridy = 0;
 
-		contentPanel.add(createPostalCodePanel(), constraints);
+		contentPanel.add(createDescriptionPanel(), constraints);
 		constraints.gridy = 1;
-		contentPanel.add(createNamePanel(), constraints);
+		contentPanel.add(createBuildingNamePanel(), constraints);
 		constraints.gridy = 2;
 		contentPanel.add(addButton, constraints);
 
 		return contentPanel;
 	}
 
-	private JPanel createPostalCodePanel() {
+	private JPanel createDescriptionPanel() {
 		JPanel postalCodePanel = new JPanel(new GridLayout(2, 1));
 		postalCodePanel.setBackground(BG_COLOR);
 
-		postalCodePanel.add(postalCodeLabel);
-		postalCodePanel.add(postalCodeField);
+		postalCodePanel.add(descriptionLabel);
+		postalCodePanel.add(descriptionField);
 
 		return postalCodePanel;
 	}
 
-	private JPanel createNamePanel() {
-		JPanel namePanel = new JPanel(new GridLayout(2, 1));
+	private JPanel createBuildingNamePanel() {
+		JPanel namePanel = new JPanel(new GridLayout(1, 2));
 		namePanel.setBackground(BG_COLOR);
 
-		namePanel.add(nameLabel);
-		namePanel.add(nameField);
+		namePanel.add(createBuildingPanel());
+		namePanel.add(createFloorPanel());
 
 		return namePanel;
+	}
+
+	private JPanel createBuildingPanel() {
+		JPanel buildingPanel = new JPanel(new GridLayout(2, 1));
+		buildingPanel.setBackground(BG_COLOR);
+
+		buildingPanel.add(buildingLabel);
+		buildingPanel.add(buildingBox);
+
+		return buildingPanel;
+	}
+
+	private JPanel createFloorPanel() {
+		JPanel floorPanel = new JPanel(new GridLayout(2, 1));
+		floorPanel.setBackground(BG_COLOR);
+
+		floorPanel.add(floorLabel);
+		floorPanel.add(floorField);
+
+		return floorPanel;
 	}
 
 	private Component createTitlePanel() {
@@ -220,41 +260,41 @@ public class AdminRoomUI extends JPanel {
 		return titlePanel;
 	}
 
-	public Building getSelectedValue() {
-		return buildings.getSelectedValue();
+	public Room getSelectedValue() {
+		return rooms.getSelectedValue();
 	}
 
-	public String getName() {
-		return nameField.getText();
+	public String getDescription() {
+		return descriptionField.getText();
 	}
 
-	public String getPostalCode() {
-		return postalCodeField.getText();
+	public String getFloor() {
+		return floorField.getText();
 	}
 
-	public void setNameField(String text) {
-		nameField.setText(text);
+	public void setDescriptionField(String text) {
+		descriptionField.setText(text);
 	}
 
-	public void setPostalCodeField(String text) {
-		postalCodeField.setText(text);
+	public void setFloorField(String text) {
+		floorField.setText(text);
 	}
 
-	public void addBuilding(Building building) {
-		listModel.addElement(building);
+	public void addRoom(Room room) {
+		listModel.addElement(room);
 	}
 
-	public void removeBuilding() {
-		listModel.removeElement(buildings.getSelectedValue());
+	public void removeRoom() {
+		listModel.removeElement(rooms.getSelectedValue());
 	}
 
-	public void updateBuilding(Building oldValue, Building newValue) {
+	public void updateRoom(Room oldValue, Room newValue) {
 		listModel.removeElement(oldValue);
 		listModel.addElement(newValue);
 	}
 
 	public void resetFields() {
-		nameField.setText("");
-		postalCodeField.setText("");
+		descriptionField.setText("");
+		floorField.setText("");
 	}
 }

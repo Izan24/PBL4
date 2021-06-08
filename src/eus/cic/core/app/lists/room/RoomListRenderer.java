@@ -22,20 +22,23 @@ public class RoomListRenderer implements ListCellRenderer<Room> {
 	public Component getListCellRendererComponent(JList<? extends Room> list, Room value, int index, boolean isSelected,
 			boolean cellHasFocus) {
 		JPanel panel = new JPanel(new GridLayout(3, 1));
-		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		JLabel building = new JLabel("Edificio: " + value.getBuilding());
-		building.setFont(FONT);
 		JLabel floor = new JLabel("Planta: " + value.getFloor());
-		floor.setFont(FONT);
 		JLabel description = new JLabel("Descripcion: " + value.getDescription());
+
+		building.setFont(FONT);
+		floor.setFont(FONT);
 		description.setFont(FONT);
 		
-		panel.setBackground(BG_COLOR);
+		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		panel.setOpaque(true);
 		
 		panel.add(building);
 		panel.add(floor);
 		panel.add(description);
+		
+		if(isSelected) panel.setBackground(Color.LIGHT_GRAY);
+		else panel.setBackground(BG_COLOR);
 		
 		return panel;
 	}

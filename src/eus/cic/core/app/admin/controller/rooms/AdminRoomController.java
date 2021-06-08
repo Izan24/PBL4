@@ -49,7 +49,7 @@ public class AdminRoomController implements IRoundButtonListener, IClickable, Ke
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_ENTER:
-			//addBuilding();
+			// addBuilding();
 			break;
 
 		default:
