@@ -1,4 +1,4 @@
-package eus.cic.core.app.admin.ui.salas;
+package eus.cic.core.app.admin.ui.room;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,7 +22,8 @@ import javax.swing.JTextField;
 
 import eus.cic.core.app.admin.controller.building.AdminBuildingController;
 import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
-import eus.cic.core.app.admin.controller.rooms.AdminRoomController;
+import eus.cic.core.app.admin.controller.room.AdminRoomController;
+import eus.cic.core.app.admin.controller.room.AdminRoomControllerAC;
 import eus.cic.core.app.lists.building.BuildingList;
 import eus.cic.core.app.lists.building.BuildingListRenderer;
 import eus.cic.core.app.lists.room.RoomList;
@@ -115,18 +116,21 @@ public class AdminRoomUI extends JPanel {
 
 	private void initButtons() {
 		addButton = new MDButton(ADD_STRING, new Dimension(80, 40), ADD_COLOR, 10, controller,
-				AdminBuildingControllerAC.ADD_BUILDING);
+				AdminRoomControllerAC.ADD_ROOM);
 		removeButton = new MDButton(REMOVE_STRING, new Dimension(40, 40), REMOVE_COLOR, 10, controller,
-				AdminBuildingControllerAC.REMOVE_BUILDING);
+				AdminRoomControllerAC.REMOVE_ROOM);
 		editButton = new MDButton(EDIT_STRING, new Dimension(40, 40), EDIT_COLOR, 10, controller,
-				AdminBuildingControllerAC.EDIT_BUILDING);
+				AdminRoomControllerAC.EDIT_ROOM);
 	}
 
 	private void initComboBox() {
-		// List<Room> rooms = Jsoncalls()..;
+		// List<Room> rooms = apicalls()..;
 		// List<Room> rooms = new ArrayList<>();
 
 		buildingBox = new JComboBox<>();
+		buildingBox.setBackground(BG_COLOR);
+		buildingBox.setFont(FIELD_FONT);
+		buildingBox.setFocusable(false);
 		// roomBox.add(rooms);
 	}
 
@@ -278,6 +282,10 @@ public class AdminRoomUI extends JPanel {
 
 	public void setFloorField(String text) {
 		floorField.setText(text);
+	}
+
+	public void setBuilding(Building building) {
+		buildingBox.setSelectedItem(building);
 	}
 
 	public void addRoom(Room room) {

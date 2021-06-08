@@ -42,7 +42,8 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 				ui.setPostalCodeField(oldBuilding.getPostalCode());
 			} catch (NullPointerException e) {
 			}
-
+			break;
+		default:
 			break;
 		}
 	}

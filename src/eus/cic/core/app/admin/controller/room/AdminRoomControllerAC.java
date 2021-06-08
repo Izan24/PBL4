@@ -1,4 +1,4 @@
-package eus.cic.core.app.admin.controller.rooms;
+package eus.cic.core.app.admin.controller.room;
 
 public class AdminRoomControllerAC {
 
