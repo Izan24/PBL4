@@ -9,27 +9,24 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.sql.PseudoColumnUsage;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.border.MatteBorder;
 
 import eus.cic.core.app.admin.controller.building.AdminBuildingController;
 import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
 import eus.cic.core.app.lists.building.BuildingList;
 import eus.cic.core.app.lists.building.BuildingListRenderer;
 import eus.cic.core.app.main.PrincipalWindow;
-import eus.cic.core.app.uicomponents.borders.RoundedBorder;
+import eus.cic.core.app.session.SessionException;
 import eus.cic.core.app.uicomponents.borders.SearchBorder;
 import eus.cic.core.app.uicomponents.components.MDButton;
 import eus.cic.core.app.uicomponents.components.RoundedTextField;
+import eus.cic.core.app.utils.APIRequests;
 import eus.cic.core.app.utils.DoubleClickListener;
 import eus.cic.core.models.Building;
 
@@ -43,7 +40,7 @@ public class AdminBuildingUI extends JPanel {
 
 	DoubleClickListener clickListener;
 
-	private static final String ADD_STRING = "Añadir";
+	private static final String ADD_STRING = "Aï¿½adir";
 	private static final String REMOVE_STRING = "-";
 	private static final String EDIT_STRING = "...";
 	private static final String TITLE_STRING = "Edificios";
@@ -86,7 +83,12 @@ public class AdminBuildingUI extends JPanel {
 	private void initJList() {
 		buildings = new JList<>();
 		listModel = new BuildingList();
-		// listModel.setList(JSONCalls.getBuildings());
+		try {
+			listModel.setList(APIRequests.getBuildings());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		renderer = new BuildingListRenderer();
 
 		buildings.setModel(listModel);

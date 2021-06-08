@@ -5,6 +5,10 @@ public class Building {
 	String postalCode;
 	String name;
 
+	public void setBuildingId(Integer buildingId) {
+		this.buildingId = buildingId;
+	}
+
 	public Building(Integer buildingId, String postalCode, String name) {
 		this.buildingId = buildingId;
 		this.postalCode = postalCode;

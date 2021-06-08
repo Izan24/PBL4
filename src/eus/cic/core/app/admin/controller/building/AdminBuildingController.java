@@ -7,7 +7,9 @@ import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.interfaces.IClickable;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 import eus.cic.core.app.main.PrincipalWindow;
+import eus.cic.core.app.session.SessionException;
 import eus.cic.core.app.uicomponents.dialogs.CreationErrorDialog;
+import eus.cic.core.app.utils.APIRequests;
 import eus.cic.core.models.Building;
 
 public class AdminBuildingController implements IRoundButtonListener, IClickable, KeyListener {
@@ -32,7 +34,12 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 			addBuilding();
 			break;
 		case AdminBuildingControllerAC.REMOVE_BUILDING:
-			// server
+			try {
+				APIRequests.disableBuilding(ui.getSelectedValue());
+			} catch (SessionException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			ui.removeBuilding();
 			break;
 		case AdminBuildingControllerAC.EDIT_BUILDING:
@@ -54,7 +61,13 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 
 			if (oldBuilding != null) {
 				if (!oldBuilding.equals(newBuilding)) {
-					// Server
+					try {
+						newBuilding.setBuildingId(oldBuilding.getBuildingId());
+						APIRequests.updateBuilding(newBuilding);
+					} catch (SessionException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					ui.updateBuilding(oldBuilding, newBuilding);
 					ui.resetFields();
 					oldBuilding = null;
@@ -62,6 +75,14 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 					new CreationErrorDialog(window, "Error: iguales", true, EQUAL_MSG);
 				}
 			} else {
+				Integer id = -1;
+				try {
+					id = APIRequests.insertBuilding(newBuilding);
+					newBuilding.setBuildingId(id);
+				} catch (SessionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				ui.addBuilding(newBuilding);
 				ui.resetFields();
 			}

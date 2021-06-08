@@ -50,7 +50,6 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 		form.put("user", user).put("pass", pass);
 		if (!locked) {
 			JSONObject response = APIutils.postRequest("/api/login", form);
-			System.out.println(response.toString());
 			if (!(response.getString("status").equals("ok"))) {
 				new CreationErrorDialog(vista, "Error: conexion", true, ERROR_STRING);
 				return null;

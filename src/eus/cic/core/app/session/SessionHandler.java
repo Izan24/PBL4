@@ -26,7 +26,6 @@ public class SessionHandler {
 	public static void setSession(String session, Integer userId) {
 		SessionHandler.session = session;
 		SessionHandler.userId = userId;
-		System.out.println(session);
 	}
 	
 	public static JSONObject getSessionCredentials() {

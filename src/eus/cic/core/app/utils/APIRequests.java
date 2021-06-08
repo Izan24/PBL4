@@ -14,7 +14,7 @@ public class APIRequests {
 
 	public static List<Building> getBuildings() throws SessionException{
 		List<Building> buildings = null;
-		JSONObject response = APIutils.getRequest("/api/getBuildings?session=" + SessionHandler.getSession());
+		JSONObject response = APIutils.getRequest("/api/buildings?session=" + SessionHandler.getSession());
 		if (response.getString("status").equals("ok")) {
 			buildings = JSONParser.parseBuildings(response.getJSONArray("buildings"));
 		}else {
@@ -25,39 +25,35 @@ public class APIRequests {
 	
 	public static Integer insertBuilding(Building building) throws SessionException {
 		Integer id = -1;
-		JSONObject json = new JSONObject().put("name", building.getNombre()).put("postal_code", building.getPostalCode());
-		json.put("session", json.put("session", SessionHandler.getSession()));
+		JSONObject build = new JSONObject().put("name", building.getNombre()).put("postal_code", building.getPostalCode()).put("id", building.getBuildingId());
+		JSONObject json = new JSONObject().put("session", SessionHandler.getSession()).put("building", build);
 		JSONObject response = APIutils.postRequest("/api/insertBuilding", json);
 		if (response.getString("status").equals("ok")) {
-			id = response.getInt("id");
+			id = response.getInt("building_id");
 		}else {
 			throw new SessionException();
 		}
 		return id;
 	}
 	
-	public static Integer disableBuilding(Building building) throws SessionException {
-		Integer id = -1;
-		JSONObject json = new JSONObject().put("name", building.getNombre()).put("postal_code", building.getPostalCode()).put("id", building.getBuildingId());
-		json.put("disable", true).put("session", json.put("session", SessionHandler.getSession()));
+	public static void disableBuilding(Building building) throws SessionException {
+		JSONObject build = new JSONObject().put("name", building.getNombre()).put("postal_code", building.getPostalCode()).put("id", building.getBuildingId());
+		JSONObject json = new JSONObject().put("session", SessionHandler.getSession()).put("building", build).put("disable", true);
 		JSONObject response = APIutils.postRequest("/api/updateBuilding", json);
 		if (response.getString("status").equals("ok")) {
 		}else {
 			throw new SessionException();
 		}
-		return id;
 	}
 	
-	public static Integer updateBuilding(Building building) throws SessionException {
-		Integer id = -1;
-		JSONObject json = new JSONObject().put("name", building.getNombre()).put("postal_code", building.getPostalCode()).put("id", building.getBuildingId());
-		json.put("disable", false).put("session", json.put("session", SessionHandler.getSession()));
+	public static void updateBuilding(Building building) throws SessionException {
+		JSONObject build = new JSONObject().put("name", building.getNombre()).put("postal_code", building.getPostalCode()).put("id", building.getBuildingId());
+		JSONObject json = new JSONObject().put("session", SessionHandler.getSession()).put("building", build).put("disable", false);
 		JSONObject response = APIutils.postRequest("/api/updateBuilding", json);
 		if (response.getString("status").equals("ok")) {
 		}else {
 			throw new SessionException();
 		}
-		return id;
 	}
 	
 	
@@ -66,9 +62,7 @@ public class APIRequests {
 		User user = null;
 		JSONObject response = APIutils
 				.getRequest("/api/userById?id=" + user_id + "&session=" + SessionHandler.getSession());
-		System.out.println(response.toString());
 		if (response.getString("status").equals("ok")) {
-			System.out.println("Siosi");
 			user = JSONParser.parseUser((response.getJSONObject("user")));
 		}else {
 			throw new SessionException();

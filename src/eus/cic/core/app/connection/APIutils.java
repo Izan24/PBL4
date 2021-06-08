@@ -56,7 +56,9 @@ public class APIutils {
 			HttpURLConnection httpClient = getConnection(url, "GET", PORT);
 			int responseCode = httpClient.getResponseCode();
 			System.out.println("Response Code : " + responseCode);
-			return getInputStream(httpClient);
+			JSONObject json = getInputStream(httpClient);
+			System.out.println(json);
+			return json ;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new JSONObject().put("status", "error").put("error", "general");
@@ -72,7 +74,9 @@ public class APIutils {
 
 			int responseCode = httpClient.getResponseCode();
 			System.out.println("Response Code : " + responseCode);
-			return getInputStream(httpClient);
+			JSONObject jsonout = getInputStream(httpClient);
+			System.out.println(jsonout);
+			return jsonout ;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new JSONObject().put("status", "error").put("error", "general");

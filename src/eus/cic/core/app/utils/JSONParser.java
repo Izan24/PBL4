@@ -50,7 +50,7 @@ public class JSONParser {
 	private static Building parseBuilding(JSONObject buildJSON) {
 		String name = buildJSON.getString("name");
 		String p_code = buildJSON.getString("postal_code");
-		Integer id = buildJSON.getInt("id");
+		Integer id = buildJSON.getInt("building_id");
 		Building building = new Building(id, p_code, name);
 		return building;
 	}
