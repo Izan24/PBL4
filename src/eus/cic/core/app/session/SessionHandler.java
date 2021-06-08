@@ -2,9 +2,7 @@ package eus.cic.core.app.session;
 
 import org.json.JSONObject;
 
-import eus.cic.core.app.connection.APIutils;
 import eus.cic.core.app.utils.APIRequests;
-import eus.cic.core.app.utils.JSONParser;
 import eus.cic.core.models.User;
 
 public class SessionHandler {

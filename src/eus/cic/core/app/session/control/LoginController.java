@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.sound.midi.Soundbank;
 import javax.swing.Timer;
 
 import org.json.JSONObject;
@@ -36,11 +37,12 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 
 	public static void getLogin() {
 		LoginController con = new LoginController();
-		while (!con.isLogged());
-	}
-
-	public static void main(String[] args) {
-		getLogin();
+		while (!con.isLogged())
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 	}
 
 	private JSONObject sendLoginRequest(String user, String pass) {

@@ -15,7 +15,7 @@ public class WindowController {
 	public WindowController(PrincipalWindow window, User user) {
 		this.user = user;
 		this.window = window;
-		//initUI();
+		initUI();
 		setStartView();
 		window.repaint();
 		window.revalidate();
@@ -29,7 +29,6 @@ public class WindowController {
 	}
 
 	private void setStartView() {
-		window.setContentPane(new AdminUI(window));
-		// window.setContentPane(new UserUI());
+		window.setContentPane(ui);
   }
 }
