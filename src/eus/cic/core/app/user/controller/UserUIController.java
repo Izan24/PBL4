@@ -3,7 +3,10 @@ package eus.cic.core.app.user.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.UIManager;
+
 import eus.cic.core.app.user.ui.UserUI;
+import eus.cic.core.app.user.ui.profile.UserProfileUI;
 
 public class UserUIController implements ActionListener {
 
@@ -30,7 +33,7 @@ public class UserUIController implements ActionListener {
 
 			break;
 		case UserUIControllerAC.PROFILE:
-
+			
 			break;
 		default:
 			break;

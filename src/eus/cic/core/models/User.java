@@ -23,11 +23,16 @@ public class User {
 		this.postalCode = postalCode;
 		this.address = address;
 		this.prefix = prefix;
+		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.departamento = departamento;
 		this.dni = dni;
 		this.admin = admin;
 		this.permissions = permissions;
+	}
+
+	public String getEmail() {
+		return email;
 	}
 
 	public String getNombre() {

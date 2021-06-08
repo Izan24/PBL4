@@ -4,12 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 
+import eus.cic.core.app.lists.room.RoomList;
 import eus.cic.core.app.uicomponents.components.MDButtonPanel;
 import eus.cic.core.app.user.controller.UserUIController;
+import eus.cic.core.app.user.ui.profile.UserProfileUI;
+import eus.cic.core.models.Room;
+import eus.cic.core.models.User;
 
 public class UserUI extends JPanel {
 	
@@ -23,7 +30,14 @@ public class UserUI extends JPanel {
 		super(new BorderLayout());
 		controller = new UserUIController(this);
 		this.setBackground(BG_COLOR);
-		this.add(createUserToolbar());
+		this.add(createUserToolbar(), BorderLayout.NORTH);
+		
+		List<Room> list = new ArrayList<>();
+		list.add(new Room("description", "1", "2", true));
+		list.add(new Room("descrption", "4", "3", true));
+		
+		this.add(new UserProfileUI(new User("p", "e", "r", "23", "45", "5555", "77@", "departamento", "dni", false, list)), BorderLayout.CENTER);
+		
 		this.repaint();
 		this.revalidate();
 	}
