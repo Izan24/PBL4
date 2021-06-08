@@ -36,7 +36,7 @@ public class LoginController implements IRoundButtonListener, ActionListener, Ke
 
 	public static void getLogin() {
 		LoginController con = new LoginController();
-		while (!con.isLogged()) System.out.println(con.isLogged());;
+		while (!con.isLogged());
 	}
 
 	public static void main(String[] args) {
