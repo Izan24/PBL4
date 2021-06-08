@@ -22,12 +22,14 @@ public class WindowController {
 	}
 
 	private void initUI() {
-		if (user.isAdmin()) ui = new AdminUI();
-		else ui = new UserUI();
+		if (user.isAdmin())
+			ui = new AdminUI(window);
+		else
+			ui = new UserUI();
 	}
 
 	private void setStartView() {
-		window.setContentPane(new UserUI());
-		//window.setContentPane(new UserUI());
-	}
+		window.setContentPane(new AdminUI(window));
+		// window.setContentPane(new UserUI());
+  }
 }

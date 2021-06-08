@@ -8,9 +8,14 @@ import eus.cic.core.models.User;
 public class Application {
 
 	public static void main(String[] args) {
-		//LoginController.getLogin();
-		PrincipalWindow win = new PrincipalWindow(null);
-		//User user = SessionHandler.getUser();
+		try {
+			LoginController.getLogin();
+			User user = SessionHandler.getUser();
+			System.out.println("Izan arcos");
+			new PrincipalWindow(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

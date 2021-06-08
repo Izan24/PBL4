@@ -2,12 +2,12 @@ package eus.cic.core.models;
 
 public class Room {
 	
-	String buildingId;
+	Building buildingId;
 	String floor;
 	String description;
 	Boolean enabled;
 	
-	public Room(String description, String buildingId, String floor, Boolean enabled) {
+	public Room(String description, Building buildingId, String floor, Boolean enabled) {
 		this.description = description;
 		this.buildingId = buildingId;
 		this.floor = floor;
@@ -18,7 +18,7 @@ public class Room {
 		return description;
 	}
 
-	public String getBuildingId() {
+	public Building getBuilding() {
 		return buildingId;
 	}
 
