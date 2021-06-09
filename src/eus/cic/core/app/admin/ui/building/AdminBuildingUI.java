@@ -68,7 +68,7 @@ public class AdminBuildingUI extends JPanel {
 	private void initJList() {
 		buildings = new JList<>();
 		listModel = new BuildingList();
-		// listModel.setList(JSONCalls.getBuildings());
+		//listModel.setList(JSONCalls.getBuildings());
 		renderer = new BuildingListRenderer();
 
 		buildings.setModel(listModel);
