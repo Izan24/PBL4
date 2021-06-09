@@ -15,7 +15,9 @@ import javax.swing.plaf.basic.BasicButtonUI;
 import eus.cic.core.app.admin.controller.AdminUIController;
 import eus.cic.core.app.admin.controller.AdminUIControllerAC;
 import eus.cic.core.app.admin.controller.building.AdminBuildingController;
+import eus.cic.core.app.admin.controller.menu.AdminMenuController;
 import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
+import eus.cic.core.app.admin.ui.menu.AdminMenuUI;
 import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.components.MDButton;
 
@@ -40,7 +42,7 @@ public class AdminUI extends JPanel {
 
 		this.setBackground(BG_COLOR);
 		this.add(createAdminToolbar(), BorderLayout.NORTH);
-		this.add(new AdminBuildingUI(window), BorderLayout.CENTER);
+		this.add(new AdminMenuUI(), BorderLayout.CENTER);
 		this.setBorder(new EmptyBorder(20, 20, 20, 20));
 		this.repaint();
 		this.revalidate();
