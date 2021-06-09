@@ -23,7 +23,7 @@ public class JSONParser {
 		String email = json.getString("email");
 		String dni = json.getString("dni");
 		Boolean isAdmin = json.getBoolean("is_admin");
-		List<Room> permission = parsePermissions(json.getJSONArray("perms"));
+		List<Room> permission = parsePermissions(json.getJSONArray("permissions"));
 		
 		return new User(name, surname, postalCode, address, prefix, phone,email, dept, dni, isAdmin, permission);
 	}
@@ -32,26 +32,34 @@ public class JSONParser {
 		List<Room> rooms = new ArrayList<>();
 		for (Object object : jsonArray) {
 			JSONObject json = (JSONObject)object;
-			String description = json.getString("description");
-			String floor = json.getString("floor");
-			String building = json.getString("building");
-			Boolean enabled = json.getBoolean("enabled");
-			Room room = new Room(description, building, floor, enabled);
-			rooms.add(room);
+			rooms.add(parseRoom(json));
 		}
 		return rooms;
 	}
+	
+	private static Room parseRoom(JSONObject json) {
+		String description = json.getString("description");
+		String floor = json.getString("floor");
+		Building building = parseBuilding(json.getJSONObject("buildings"));
+		Boolean enabled = json.getBoolean("enabled");
+		Room room = new Room(description, building, floor, enabled);
+		return room;
+	}
 
 	
-	public static List<Building> parseBuildings(JSONArray jsonArray){
+	private static Building parseBuilding(JSONObject buildJSON) {
+		String name = buildJSON.getString("name");
+		String p_code = buildJSON.getString("postal_code");
+		Integer id = buildJSON.getInt("building_id");
+		Building building = new Building(id, p_code, name);
+		return building;
+	}
+	
+	public static List<Building> parseBuildings(JSONArray array) {
 		List<Building> buildings = new ArrayList<>();
-		for (Object object : jsonArray) {
+		for (Object object : array) {
 			JSONObject json = (JSONObject)object;
-			Integer buildingId = json.getInt("building_id");
-			String postalCode = json.getString("postal_code");
-			String name = json.getString("name");
-			Building building = new Building(buildingId, postalCode, name);
-			buildings.add(building);
+			buildings.add(parseBuilding(json));
 		}
 		return buildings;
 	}

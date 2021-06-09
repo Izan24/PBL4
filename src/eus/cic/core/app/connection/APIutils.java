@@ -32,7 +32,7 @@ public class APIutils {
 			while ((line = in.readLine()) != null) {
 				response.append(line);
 			}
-			return new JSONObject(response.toString()).put("status", "success");
+			return new JSONObject(response.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -56,7 +56,9 @@ public class APIutils {
 			HttpURLConnection httpClient = getConnection(url, "GET", PORT);
 			int responseCode = httpClient.getResponseCode();
 			System.out.println("Response Code : " + responseCode);
-			return getInputStream(httpClient);
+			JSONObject json = getInputStream(httpClient);
+			System.out.println(json);
+			return json ;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new JSONObject().put("status", "error").put("error", "general");
@@ -67,13 +69,14 @@ public class APIutils {
 	public static JSONObject postRequest(String url, JSONObject json) {
 		try {
 			HttpURLConnection httpClient = getConnection(url, "POST", PORT);
-
 			if (!writeJSON(httpClient, json))
 				return new JSONObject().put("status", "error").put("error", "json");
 
 			int responseCode = httpClient.getResponseCode();
 			System.out.println("Response Code : " + responseCode);
-			return getInputStream(httpClient);
+			JSONObject jsonout = getInputStream(httpClient);
+			System.out.println(jsonout);
+			return jsonout ;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new JSONObject().put("status", "error").put("error", "general");
