@@ -3,63 +3,65 @@ package eus.cic.core.app.admin.controller.menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import eus.cic.core.app.admin.controller.AdminUIController;
 import eus.cic.core.app.admin.ui.menu.AdminMenuUI;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 
-public class AdminMenuController implements ActionListener {
+public class AdminMenuController implements IRoundButtonListener {
 
 	AdminMenuUI adminMenuUI;
+	AdminUIController uiController;
 
-	public AdminMenuController(AdminMenuUI adminMenuUI) {
+	public AdminMenuController(AdminMenuUI adminMenuUI, AdminUIController uiController) {
 		this.adminMenuUI = adminMenuUI;
+		this.uiController = uiController;
 
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent event) {
+	public void actionPerformed(String actionCommand) {
 
-		switch (event.getActionCommand()) {
+		switch (actionCommand) {
 
 		case AdminMenuControllerAC.BUILDINGS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.BUILDINGS);
 			break;
 
 		case AdminMenuControllerAC.ROOMS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.ROOMS);
 			break;
 
 		case AdminMenuControllerAC.WORKERS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.WORKERS);
 			break;
 
 		case AdminMenuControllerAC.BOOKINGS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.BOOKINGS);
 			break;
 
 		case AdminMenuControllerAC.CARDS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.CARDS);
 			break;
 
 		case AdminMenuControllerAC.PERMISSIONS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.PERMISSIONS);
 			break;
 
 		case AdminMenuControllerAC.PROJECTS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.PROJECTS);
 			break;
 
 		case AdminMenuControllerAC.CHECKINS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.CHECKINS);
 			break;
 
 		case AdminMenuControllerAC.BONDS:
-			System.out.println(event.getActionCommand());
+			uiController.setCenterUI(AdminMenuControllerAC.BONDS);
 			break;
 
 		default:
 			break;
 		}
-
 	}
 
 }

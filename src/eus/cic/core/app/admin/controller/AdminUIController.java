@@ -1,36 +1,52 @@
 package eus.cic.core.app.admin.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import eus.cic.core.app.admin.ui.AdminUI;
 import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
+import eus.cic.core.app.admin.ui.menu.AdminMenuUI;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 import eus.cic.core.app.main.PrincipalWindow;
 
-public class AdminUIController implements ActionListener, IRoundButtonListener {
+public class AdminUIController implements IRoundButtonListener {
 
 	AdminUI ui;
 
-	AdminBuildingUI buildingUI;
 	private PrincipalWindow window;
+	AdminBuildingUI buildingUI;
+	AdminMenuUI menuUI;
 
 	public AdminUIController(AdminUI ui, PrincipalWindow window) {
 		this.ui = ui;
 		this.window = window;
 
+		setUISToNull();
+		setStartUI();
+	}
+
+	private void setStartUI() {
+		this.menuUI = new AdminMenuUI(this);
+		ui.setStartPannel(menuUI);
+	}
+
+	private void setUISToNull() {
+		buildingUI = null;
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
+	public void actionPerformed(String actionCommand) {
+		if (actionCommand.equals(AdminUIControllerAC.MENU)) {
+			System.out.println("a");
+			ui.setCenterPanel(menuUI);
+		}
+	}
+
+	public void setCenterUI(String command) {
+		switch (command) {
 		case AdminUIControllerAC.BUILDINGS:
 			if (buildingUI == null) {
 				buildingUI = new AdminBuildingUI(window);
 			}
 			ui.enableHome();
 			ui.setCenterPanel(buildingUI);
-
 			break;
 		case AdminUIControllerAC.ROOMS:
 			ui.enableHome();
@@ -64,20 +80,10 @@ public class AdminUIController implements ActionListener, IRoundButtonListener {
 			ui.enableHome();
 
 			break;
-		case AdminUIControllerAC.MENU:
-			ui.disableHome();
-			System.out.println("menu");
-			// ui.setCenterPanel(centerPanel); //Poner panel menu;
-
+		default:
 			break;
 
 		}
-	}
-
-	@Override
-	public void actionPerformed(String actionCommand) {
-		if (actionCommand.equals(AdminUIControllerAC.MENU))
-			;
 
 	}
 

@@ -35,20 +35,20 @@ public class AdminUI extends JPanel {
 
 	public AdminUI(PrincipalWindow window) {
 		super(new BorderLayout());
+		this.setBackground(BG_COLOR);
+		this.setBorder(new EmptyBorder(20, 20, 20, 20));
 
 		controller = new AdminUIController(this, window);
-
 		initHomeButton();
-
-		this.setBackground(BG_COLOR);
 		this.add(createAdminToolbar(), BorderLayout.NORTH);
-		this.add(new AdminMenuUI(), BorderLayout.CENTER);
-		this.setBorder(new EmptyBorder(20, 20, 20, 20));
+
 		this.repaint();
 		this.revalidate();
 	}
 
 	public void setCenterPanel(JPanel centerPanel) {
+		this.removeAll();
+		this.add(toolbar, BorderLayout.NORTH);
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.revalidate();
 		this.repaint();
@@ -91,6 +91,10 @@ public class AdminUI extends JPanel {
 		tempButton.setPreferredSize(new Dimension(250, 40));
 		tempButton.setBorder(BorderFactory.createMatteBorder(0, 0, 4, 0, MDButton.RED));
 		return tempButton;
+	}
+
+	public void setStartPannel(AdminMenuUI menuUI) {
+		this.add(menuUI, BorderLayout.CENTER);
 	}
 
 }
