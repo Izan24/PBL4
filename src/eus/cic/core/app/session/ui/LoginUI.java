@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import eus.cic.core.app.interfaces.IRoundButtonListener;
+import eus.cic.core.app.session.control.LoginController;
 import eus.cic.core.app.uicomponents.borders.SearchBorder;
 import eus.cic.core.app.uicomponents.components.MDButton;
 import eus.cic.core.app.uicomponents.components.RoundedJPasswordField;
@@ -45,9 +46,9 @@ public class LoginUI extends JFrame {
 
 	private JTextField userField;
 	private JPasswordField passwordField;
-	private IRoundButtonListener listener;
+	private LoginController listener;
 
-	public LoginUI(IRoundButtonListener listener) {
+	public LoginUI(LoginController listener) {
 		this.listener = listener;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(new Dimension(500, 700));
@@ -77,6 +78,8 @@ public class LoginUI extends JFrame {
 		JButton submit = new MDButton("Login", new Dimension(80, 50), MDButton.RED, 40, listener, "submit");
 		submit.setFocusable(true);
 		submit.grabFocus();
+		submit.requestFocus();
+		submit.addKeyListener(listener);
 		return submit;
 	}
 
@@ -90,13 +93,15 @@ public class LoginUI extends JFrame {
 		userField.setBackground(Color.WHITE);
 		userField.setPreferredSize(new Dimension(100, 45));
 		userField.setBorder(new SearchBorder(10, FOREGROUND_COLOR_VERSION, false));
+		userField.addKeyListener(listener);
 
-		passwordField = new RoundedJPasswordField("Contraseña");
+		passwordField = new RoundedJPasswordField("Contraseï¿½a");
 		passwordField.setFont(FONT_USER_PASS);
 		passwordField.setForeground(FOREGROUND_COLOR_VERSION);
 		passwordField.setColumns(20);
 		passwordField.setBackground(Color.WHITE);
 		passwordField.setBorder(new SearchBorder(10, FOREGROUND_COLOR_VERSION, false));
+		passwordField.addKeyListener(listener);
 
 		fieldsPanel.setBackground(Color.WHITE);
 		fieldsPanel.add(userField);

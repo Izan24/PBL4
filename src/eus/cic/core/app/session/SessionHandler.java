@@ -2,8 +2,7 @@ package eus.cic.core.app.session;
 
 import org.json.JSONObject;
 
-import eus.cic.core.app.connection.APIutils;
-import eus.cic.core.app.utils.JSONParser;
+import eus.cic.core.app.utils.APIRequests;
 import eus.cic.core.models.User;
 
 public class SessionHandler {
@@ -36,10 +35,9 @@ public class SessionHandler {
 		return json;
 	}
 	
-	public static User getUser() {
+	public static User getUser() throws SessionException {
 		if (user == null) {
-			JSONObject json = APIutils.getRequest(String.format("/api/getUserById?id=%d&session=%s", userId, session));
-			User user = JSONParser.parseUser(json);
+			User user = APIRequests.getUser(userId);
 			SessionHandler.user = user;
 		}
 		return user;
