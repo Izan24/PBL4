@@ -75,6 +75,7 @@ public class AdminUI extends JPanel {
 		toolbar.setPreferredSize(new Dimension(250, 44));
 		toolbar.setBackground(BG_COLOR);
 		tempPanel.add(createAdminButton());
+		tempPanel.setBorder(BorderFactory.createEmptyBorder(0,0,0,105));
 		tempPanel.setBackground(BG_COLOR);
 		toolbar.add(tempPanel, BorderLayout.CENTER);
 		toolbar.add(homeButton, BorderLayout.WEST);
