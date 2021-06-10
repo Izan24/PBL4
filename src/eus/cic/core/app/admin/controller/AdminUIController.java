@@ -5,6 +5,7 @@ import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.admin.ui.menu.AdminMenuUI;
 import eus.cic.core.app.interfaces.IRoundButtonListener;
 import eus.cic.core.app.main.PrincipalWindow;
+import eus.cic.core.app.uicomponents.dialogs.CreationErrorDialog;
 
 public class AdminUIController implements IRoundButtonListener {
 
@@ -13,6 +14,8 @@ public class AdminUIController implements IRoundButtonListener {
 	private PrincipalWindow window;
 	AdminBuildingUI buildingUI;
 	AdminMenuUI menuUI;
+
+	private static final String ERROR_MSG = "Esta funcionalidad no se ha implementado todavia";
 
 	public AdminUIController(AdminUI ui, PrincipalWindow window) {
 		this.ui = ui;
@@ -49,35 +52,35 @@ public class AdminUIController implements IRoundButtonListener {
 			ui.setCenterPanel(buildingUI);
 			break;
 		case AdminUIControllerAC.ROOMS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		case AdminUIControllerAC.WORKERS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		case AdminUIControllerAC.PROJECTS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		case AdminUIControllerAC.CARDS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		case AdminUIControllerAC.BOOKINGS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		case AdminUIControllerAC.PERMISSIONS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		case AdminUIControllerAC.CHECKINS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		case AdminUIControllerAC.BONDS:
-			ui.enableHome();
+			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 
 			break;
 		default:

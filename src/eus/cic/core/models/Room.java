@@ -1,17 +1,23 @@
 package eus.cic.core.models;
 
 public class Room {
-	
+
 	Building buildingId;
 	String floor;
 	String description;
 	Boolean enabled;
-	
+
 	public Room(String description, Building buildingId, String floor, Boolean enabled) {
 		this.description = description;
 		this.buildingId = buildingId;
 		this.floor = floor;
 		this.enabled = enabled;
+	}
+
+	public Room(String description, Building buildingId, String floor) {
+		this.description = description;
+		this.buildingId = buildingId;
+		this.floor = floor;
 	}
 
 	public String getDescription() {
@@ -29,7 +35,7 @@ public class Room {
 	public Boolean isEnabled() {
 		return enabled;
 	}
-	
+
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}

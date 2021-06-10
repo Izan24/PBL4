@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 
 import eus.cic.core.app.lists.room.RoomList;
+import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.components.MDButtonPanel;
 import eus.cic.core.app.user.controller.UserUIController;
 import eus.cic.core.app.user.ui.profile.UserProfileUI;
@@ -26,18 +27,11 @@ public class UserUI extends JPanel {
 	public static final Font FONT = new Font("Calibri", Font.PLAIN, 22);
 	public static final Color BG_COLOR = Color.WHITE;
 
-	public UserUI(User user) {
+	public UserUI(User user, PrincipalWindow window) {
 		super(new BorderLayout());
-		controller = new UserUIController(this, user);
+		controller = new UserUIController(this, user, window);
 		this.setBackground(BG_COLOR);
 		this.add(createUserToolbar(), BorderLayout.NORTH);
-
-		// List<Room> list = new ArrayList<>();
-		// list.add(new Room("description", "1", "2", true));
-		// list.add(new Room("descrption", "4", "3", true));
-
-		// this.add(new UserProfileUI(new User("p", "e", "r", "23", "45", "5555", "77@",
-		// "departamento", "dni", false, list)), BorderLayout.CENTER);
 
 		this.repaint();
 		this.revalidate();
@@ -53,7 +47,7 @@ public class UserUI extends JPanel {
 
 	private JPanel createUserToolbar() {
 		toolbar = new JPanel();
-		toolbar.setPreferredSize(new Dimension(250, 44));
+		toolbar.setPreferredSize(new Dimension(250, 46));
 		toolbar.setBackground(BG_COLOR);
 		toolbar.add(new MDButtonPanel(controller));
 		toolbar.setBorder(new MatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY));

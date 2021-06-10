@@ -9,10 +9,12 @@ public class SessionHandler {
 	private static String session;
 	private static Integer userId;
 	private static User user;
+	private static Integer exit;
 
 	static {
 		session = null;
 		userId = null;
+		exit = 0;
 	}
 
 	public static String getSession() {
@@ -27,19 +29,27 @@ public class SessionHandler {
 		SessionHandler.session = session;
 		SessionHandler.userId = userId;
 	}
-	
+
 	public static JSONObject getSessionCredentials() {
 		JSONObject json = new JSONObject();
 		json.put("session", session);
 		json.put("user_id", userId);
 		return json;
 	}
-	
+
 	public static User getUser() throws SessionException {
 		if (user == null) {
 			User user = APIRequests.getUser(userId);
 			SessionHandler.user = user;
 		}
 		return user;
+	}
+
+	public static Integer exit() {
+		return exit;
+	}
+
+	public static void setExit(Integer ex) {
+		exit = ex;
 	}
 }

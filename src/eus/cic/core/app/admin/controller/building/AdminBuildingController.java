@@ -31,7 +31,8 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 	public void actionPerformed(String actionCommand) {
 		switch (actionCommand) {
 		case AdminBuildingControllerAC.ADD_BUILDING:
-			addBuilding();
+			window.disposeWindow();
+			//addBuilding();
 			break;
 		case AdminBuildingControllerAC.REMOVE_BUILDING:
 			try {

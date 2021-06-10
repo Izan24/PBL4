@@ -54,6 +54,8 @@ public class LoginUI extends JFrame {
 		setSize(new Dimension(500, 700));
 		setLocationRelativeTo(null);
 		setContentPane(createContentPane());
+		this.repaint();
+		this.revalidate();
 	}
 
 	private JPanel createContentPane() {

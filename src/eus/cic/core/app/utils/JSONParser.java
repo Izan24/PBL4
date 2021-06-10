@@ -40,9 +40,8 @@ public class JSONParser {
 	private static Room parseRoom(JSONObject json) {
 		String description = json.getString("description");
 		String floor = json.getString("floor");
-		Building building = parseBuilding(json.getJSONObject("buildings"));
-		Boolean enabled = json.getBoolean("enabled");
-		Room room = new Room(description, building, floor, enabled);
+		Building building = parseBuilding(json.getJSONObject("building"));
+		Room room = new Room(description, building, floor);
 		return room;
 	}
 

@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import eus.cic.core.Application;
+import eus.cic.core.app.session.SessionHandler;
 import eus.cic.core.models.User;
 
 public class PrincipalWindow extends JFrame {
@@ -15,6 +17,7 @@ public class PrincipalWindow extends JFrame {
 		super();
 		initWindow();
 		windowController = new WindowController(this, user);
+		this.addWindowListener(windowController);
 	}
 
 	private void initWindow() {
@@ -27,5 +30,10 @@ public class PrincipalWindow extends JFrame {
 	public void setWindowView(JPanel viewPanel) {
 		this.setContentPane(viewPanel);
 	}
-	
+
+	public void disposeWindow() {
+		SessionHandler.setExit(1);
+		this.dispose();
+	}
+
 }
