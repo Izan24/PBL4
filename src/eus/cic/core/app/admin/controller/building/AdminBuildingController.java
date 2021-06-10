@@ -31,13 +31,13 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 	public void actionPerformed(String actionCommand) {
 		switch (actionCommand) {
 		case AdminBuildingControllerAC.ADD_BUILDING:
-			window.disposeWindow();
 			//addBuilding();
 			break;
 		case AdminBuildingControllerAC.REMOVE_BUILDING:
 			try {
 				APIRequests.disableBuilding(ui.getSelectedValue());
 			} catch (SessionException e1) {
+				window.disposeWindow();
 				e1.printStackTrace();
 			}
 			ui.removeBuilding();
@@ -65,8 +65,7 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 						newBuilding.setBuildingId(oldBuilding.getBuildingId());
 						APIRequests.updateBuilding(newBuilding);
 					} catch (SessionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						window.disposeWindow();
 					}
 					ui.updateBuilding(oldBuilding, newBuilding);
 					ui.resetFields();
@@ -80,7 +79,7 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 					id = APIRequests.insertBuilding(newBuilding);
 					newBuilding.setBuildingId(id);
 				} catch (SessionException e) {
-					e.printStackTrace();
+					window.disposeWindow();
 				}
 				ui.addBuilding(newBuilding);
 				ui.resetFields();
