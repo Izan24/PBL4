@@ -37,7 +37,6 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 			try {
 				APIRequests.disableBuilding(ui.getSelectedValue());
 			} catch (SessionException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			ui.removeBuilding();
@@ -80,7 +79,6 @@ public class AdminBuildingController implements IRoundButtonListener, IClickable
 					id = APIRequests.insertBuilding(newBuilding);
 					newBuilding.setBuildingId(id);
 				} catch (SessionException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				ui.addBuilding(newBuilding);

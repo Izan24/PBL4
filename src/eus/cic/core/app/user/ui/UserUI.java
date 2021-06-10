@@ -19,36 +19,38 @@ import eus.cic.core.models.Room;
 import eus.cic.core.models.User;
 
 public class UserUI extends JPanel {
-	
+
 	private UserUIController controller;
-	
+
 	private JPanel toolbar;
 	public static final Font FONT = new Font("Calibri", Font.PLAIN, 22);
 	public static final Color BG_COLOR = Color.WHITE;
 
-	public UserUI() {
+	public UserUI(User user) {
 		super(new BorderLayout());
-		controller = new UserUIController(this);
+		controller = new UserUIController(this, user);
 		this.setBackground(BG_COLOR);
 		this.add(createUserToolbar(), BorderLayout.NORTH);
-		
-		//List<Room> list = new ArrayList<>();
-		//list.add(new Room("description", "1", "2", true));
-		//list.add(new Room("descrption", "4", "3", true));
-		
-		//this.add(new UserProfileUI(new User("p", "e", "r", "23", "45", "5555", "77@", "departamento", "dni", false, list)), BorderLayout.CENTER);
-		
+
+		// List<Room> list = new ArrayList<>();
+		// list.add(new Room("description", "1", "2", true));
+		// list.add(new Room("descrption", "4", "3", true));
+
+		// this.add(new UserProfileUI(new User("p", "e", "r", "23", "45", "5555", "77@",
+		// "departamento", "dni", false, list)), BorderLayout.CENTER);
+
 		this.repaint();
 		this.revalidate();
 	}
-	
+
 	public void setCenterPanel(JPanel centerPanel) {
+		this.removeAll();
+		this.add(toolbar, BorderLayout.NORTH);
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.revalidate();
 		this.repaint();
 	}
-	
-	
+
 	private JPanel createUserToolbar() {
 		toolbar = new JPanel();
 		toolbar.setPreferredSize(new Dimension(250, 44));
@@ -57,6 +59,9 @@ public class UserUI extends JPanel {
 		toolbar.setBorder(new MatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY));
 		return toolbar;
 	}
-	
-	
+
+	public void setStartUI(JPanel startPanel) {
+		this.add(startPanel, BorderLayout.CENTER);
+	}
+
 }

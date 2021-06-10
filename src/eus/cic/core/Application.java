@@ -11,7 +11,6 @@ public class Application {
 		try {
 			LoginController.getLogin();
 			User user = SessionHandler.getUser();
-			System.out.println("Izan arcos");
 			new PrincipalWindow(user);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -25,10 +25,10 @@ public class WindowController {
 		if (user.isAdmin())
 			ui = new AdminUI(window);
 		else
-			ui = new UserUI();
+			ui = new UserUI(user);
 	}
 
 	private void setStartView() {
 		window.setContentPane(ui);
-  }
+	}
 }
