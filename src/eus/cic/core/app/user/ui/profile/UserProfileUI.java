@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 
 import eus.cic.core.app.lists.room.RoomList;
 import eus.cic.core.app.lists.room.RoomListRenderer;
+import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.models.Room;
 import eus.cic.core.models.User;
 
@@ -51,7 +52,7 @@ public class UserProfileUI extends JPanel {
 	ImageIcon profileIcon;
 	JLabel titleData, titleList;
 	
-	public UserProfileUI(User loggedUser) {
+	public UserProfileUI(User loggedUser, PrincipalWindow window) {
 		super(new GridLayout(1, 2));
 		this.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 		this.setBackground(BG_COLOR);

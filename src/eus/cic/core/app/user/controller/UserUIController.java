@@ -7,37 +7,36 @@ import javax.swing.UIManager;
 
 import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.main.PrincipalWindow;
+import eus.cic.core.app.session.SessionException;
+import eus.cic.core.app.session.SessionHandler;
 import eus.cic.core.app.uicomponents.dialogs.CreationErrorDialog;
 import eus.cic.core.app.user.ui.UserUI;
 import eus.cic.core.app.user.ui.profile.UserProfileUI;
 import eus.cic.core.models.User;
 
 public class UserUIController implements ActionListener {
-	
+
 	PrincipalWindow window;
-	User user;
 	public UserUI ui;
 	UserProfileUI userProfileUI;
 
 	private static final String ERROR_MSG = "Esta funcionalidad no se ha implementado todavia";
-	
-	public UserUIController(UserUI ui, User user, PrincipalWindow window) {
+
+	public UserUIController(UserUI ui, PrincipalWindow window) {
 		this.ui = ui;
-		this.user = user;
+
 		this.window = window;
-		
-		setUISToNull();
 
 		setStartUI();
 	}
 
 	private void setStartUI() {
-		userProfileUI = new UserProfileUI(user);
+		try {
+			userProfileUI = new UserProfileUI(SessionHandler.getUser(), window);
+		} catch (SessionException e) {
+			window.disposeWindow();
+		}
 		ui.setStartUI(userProfileUI);
-	}
-
-	private void setUISToNull() {
-		userProfileUI = null;
 	}
 
 	@Override
@@ -57,10 +56,11 @@ public class UserUIController implements ActionListener {
 			new CreationErrorDialog(window, "Alerta: no implementado", true, ERROR_MSG);
 			break;
 		case UserUIControllerAC.PROFILE:
-			if (userProfileUI == null) {
-				userProfileUI = new UserProfileUI(user);
+			try {
+				userProfileUI = new UserProfileUI(SessionHandler.getUser(), window);
+			} catch (SessionException e1) {
+				window.disposeWindow();
 			}
-			ui.setCenterPanel(userProfileUI);
 
 			break;
 		default:

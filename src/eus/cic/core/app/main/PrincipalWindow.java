@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import eus.cic.core.Application;
 import eus.cic.core.app.session.SessionHandler;
 import eus.cic.core.models.User;
 

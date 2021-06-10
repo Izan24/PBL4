@@ -29,9 +29,9 @@ public class UserUI extends JPanel {
 
 	public UserUI(User user, PrincipalWindow window) {
 		super(new BorderLayout());
-		controller = new UserUIController(this, user, window);
-		this.setBackground(BG_COLOR);
 		this.add(createUserToolbar(), BorderLayout.NORTH);
+		controller = new UserUIController(this, window);
+		this.setBackground(BG_COLOR);
 
 		this.repaint();
 		this.revalidate();

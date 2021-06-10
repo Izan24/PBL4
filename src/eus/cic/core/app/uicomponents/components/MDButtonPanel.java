@@ -14,8 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicButtonUI;
 
-public class MDButtonPanel extends JPanel implements ActionListener{
-	
+public class MDButtonPanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 5864232316023256749L;
 	public static final Integer BUTTON_FICHAS = 0;
@@ -25,13 +24,12 @@ public class MDButtonPanel extends JPanel implements ActionListener{
 	public static final Integer BUTTON_PERFIL = 4;
 	public static final Font FONT = new Font("Calibri", Font.PLAIN, 22);
 	public static final Color COLOR_VERDE = new Color(69, 183, 148);
-	
+
 	JButton fichasButton, bonosButton, reservasButton, reunionesButton, perfilButton;
 	List<JButton> buttons;
 	List<String> names;
 	ActionListener listener;
-	
-	
+
 	public MDButtonPanel(ActionListener listener) {
 		super();
 		this.listener = listener;
@@ -42,9 +40,9 @@ public class MDButtonPanel extends JPanel implements ActionListener{
 		this.setBackground(Color.WHITE);
 		this.revalidate();
 		this.repaint();
-		selectButton(2);
+		selectButton(4);
 	}
-	
+
 	private List<String> initNames() {
 		List<String> list = new ArrayList<>();
 		list.add(BUTTON_FICHAS, "Fichas");
@@ -54,14 +52,14 @@ public class MDButtonPanel extends JPanel implements ActionListener{
 		list.add(BUTTON_PERFIL, "Perfil");
 		return list;
 	}
-	
+
 	private List<JButton> initButtons() {
 		List<JButton> list = new ArrayList<>();
 		for (int i = 0; i <= 4; i++) {
 			JButton tempButton = new JButton(names.get(i));
 			tempButton.setBackground(Color.WHITE);
 			tempButton.setFont(FONT);
-			tempButton.setBorder(new EmptyBorder(0,0,0,0));
+			tempButton.setBorder(new EmptyBorder(0, 0, 0, 0));
 			tempButton.setFocusable(false);
 			tempButton.addActionListener(listener);
 			tempButton.addActionListener(this);
@@ -72,20 +70,22 @@ public class MDButtonPanel extends JPanel implements ActionListener{
 		}
 		return list;
 	}
-	 private void createPanel() {
-		 for (JButton jButton : buttons) {
+
+	private void createPanel() {
+		for (JButton jButton : buttons) {
 			this.add(jButton);
 		}
-	 }
-	 
-	 private void selectButton(Integer selectedButton) {
-		 for (JButton jButton : buttons) {
-			jButton.setBorder(new EmptyBorder(0,0,0,0));
+	}
+
+	private void selectButton(Integer selectedButton) {
+		for (JButton jButton : buttons) {
+			jButton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		}
-		 JButton selected = buttons.get(selectedButton);
-		 selected.setBorder(BorderFactory.createMatteBorder(0, 0, 4, 0, COLOR_VERDE));
-		 this.repaint();
-	 }
+		JButton selected = buttons.get(selectedButton);
+		selected.setBorder(BorderFactory.createMatteBorder(0, 0, 4, 0, COLOR_VERDE));
+		this.repaint();
+		this.revalidate();
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

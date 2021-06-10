@@ -21,7 +21,6 @@ public class AdminUIController implements IRoundButtonListener {
 		this.ui = ui;
 		this.window = window;
 
-		setUISToNull();
 		setStartUI();
 	}
 
@@ -30,14 +29,9 @@ public class AdminUIController implements IRoundButtonListener {
 		ui.setStartPannel(menuUI);
 	}
 
-	private void setUISToNull() {
-		buildingUI = null;
-	}
-
 	@Override
 	public void actionPerformed(String actionCommand) {
 		if (actionCommand.equals(AdminUIControllerAC.MENU)) {
-			System.out.println("a");
 			ui.setCenterPanel(menuUI);
 		}
 	}
@@ -45,9 +39,7 @@ public class AdminUIController implements IRoundButtonListener {
 	public void setCenterUI(String command) {
 		switch (command) {
 		case AdminUIControllerAC.BUILDINGS:
-			if (buildingUI == null) {
-				buildingUI = new AdminBuildingUI(window);
-			}
+			buildingUI = new AdminBuildingUI(window);
 			ui.enableHome();
 			ui.setCenterPanel(buildingUI);
 			break;
