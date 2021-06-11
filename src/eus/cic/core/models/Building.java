@@ -48,4 +48,9 @@ public class Building {
 		return equal;
 	}
 
+	@Override
+	public String toString() {
+		return name + " - Codigo postal: " + postalCode;
+	}
+	
 }
