@@ -52,7 +52,7 @@ public class UserProfileUI extends JPanel {
 	ImageIcon profileIcon;
 	JLabel titleData, titleList;
 	
-	public UserProfileUI(User loggedUser, PrincipalWindow window) {
+	public UserProfileUI(User loggedUser) {
 		super(new GridLayout(1, 2));
 		this.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 		this.setBackground(BG_COLOR);

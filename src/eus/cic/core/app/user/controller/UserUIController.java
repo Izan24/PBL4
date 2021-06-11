@@ -32,7 +32,7 @@ public class UserUIController implements ActionListener {
 
 	private void setStartUI() {
 		try {
-			userProfileUI = new UserProfileUI(SessionHandler.getUser(), window);
+			userProfileUI = new UserProfileUI(SessionHandler.getUser());
 		} catch (SessionException e) {
 			window.disposeWindow();
 		}
@@ -57,7 +57,7 @@ public class UserUIController implements ActionListener {
 			break;
 		case UserUIControllerAC.PROFILE:
 			try {
-				userProfileUI = new UserProfileUI(SessionHandler.getUser(), window);
+				userProfileUI = new UserProfileUI(SessionHandler.getUser());
 			} catch (SessionException e1) {
 				window.disposeWindow();
 			}
