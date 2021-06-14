@@ -9,6 +9,8 @@ import eus.cic.core.models.Building;
 
 public class BuildingList extends AbstractListModel<Building> {
 
+
+	private static final long serialVersionUID = -6134241752959667226L;
 	List<Building> list;
 
 	public BuildingList() {

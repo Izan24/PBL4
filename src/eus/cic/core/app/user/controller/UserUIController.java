@@ -3,16 +3,12 @@ package eus.cic.core.app.user.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.UIManager;
-
-import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.session.SessionException;
 import eus.cic.core.app.session.SessionHandler;
 import eus.cic.core.app.uicomponents.dialogs.CreationErrorDialog;
 import eus.cic.core.app.user.ui.UserUI;
 import eus.cic.core.app.user.ui.profile.UserProfileUI;
-import eus.cic.core.models.User;
 
 public class UserUIController implements ActionListener {
 

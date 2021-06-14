@@ -9,7 +9,7 @@ import eus.cic.core.app.session.SessionHandler;
 import eus.cic.core.models.User;
 
 public class PrincipalWindow extends JFrame {
-
+	private static final long serialVersionUID = -3248037324551012184L;
 	WindowController windowController;
 
 	public PrincipalWindow(User user) {

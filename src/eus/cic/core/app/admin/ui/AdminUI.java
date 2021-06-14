@@ -14,15 +14,13 @@ import javax.swing.plaf.basic.BasicButtonUI;
 
 import eus.cic.core.app.admin.controller.AdminUIController;
 import eus.cic.core.app.admin.controller.AdminUIControllerAC;
-import eus.cic.core.app.admin.controller.building.AdminBuildingController;
-import eus.cic.core.app.admin.controller.menu.AdminMenuController;
-import eus.cic.core.app.admin.ui.building.AdminBuildingUI;
 import eus.cic.core.app.admin.ui.menu.AdminMenuUI;
 import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.components.MDButton;
 
 public class AdminUI extends JPanel {
 
+	private static final long serialVersionUID = 4542284953132468743L;
 	public static final String ADMIN_STRING = "Administrador";
 	public static final String MENU_STRING = "Menu";
 	public static final Font FONT = new Font("Calibri", Font.PLAIN, 22);

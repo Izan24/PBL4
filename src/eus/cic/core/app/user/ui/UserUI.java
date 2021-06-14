@@ -4,22 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 
-import eus.cic.core.app.lists.room.RoomList;
 import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.app.uicomponents.components.MDButtonPanel;
 import eus.cic.core.app.user.controller.UserUIController;
-import eus.cic.core.app.user.ui.profile.UserProfileUI;
-import eus.cic.core.models.Room;
 import eus.cic.core.models.User;
 
 public class UserUI extends JPanel {
+
+	private static final long serialVersionUID = -5320754213389957881L;
 
 	private UserUIController controller;
 

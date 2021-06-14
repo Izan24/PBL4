@@ -22,7 +22,6 @@ import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
 import eus.cic.core.app.lists.building.BuildingList;
 import eus.cic.core.app.lists.building.BuildingListRenderer;
 import eus.cic.core.app.main.PrincipalWindow;
-import eus.cic.core.app.session.SessionException;
 import eus.cic.core.app.uicomponents.borders.SearchBorder;
 import eus.cic.core.app.uicomponents.components.MDButton;
 import eus.cic.core.app.uicomponents.components.RoundedTextField;
@@ -31,6 +30,8 @@ import eus.cic.core.app.utils.DoubleClickListener;
 import eus.cic.core.models.Building;
 
 public class AdminBuildingUI extends JPanel {
+
+	private static final long serialVersionUID = 9077417933852726948L;
 
 	AdminBuildingController controller;
 

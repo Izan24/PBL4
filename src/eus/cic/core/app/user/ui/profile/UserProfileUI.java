@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -17,12 +18,12 @@ import javax.swing.JScrollPane;
 
 import eus.cic.core.app.lists.room.RoomList;
 import eus.cic.core.app.lists.room.RoomListRenderer;
-import eus.cic.core.app.main.PrincipalWindow;
 import eus.cic.core.models.Room;
 import eus.cic.core.models.User;
 
 public class UserProfileUI extends JPanel {
 	
+	private static final long serialVersionUID = 1058462288773639010L;
 	JList<Room> rooms;
 	RoomList listModel;
 	RoomListRenderer renderer;

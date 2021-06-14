@@ -1,27 +1,21 @@
 package eus.cic.core.app.admin.ui.menu;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.MultipleGradientPaint.ColorSpaceType;
-import java.awt.event.ActionListener;
-import java.awt.event.HierarchyEvent;
-import java.util.jar.Attributes.Name;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import eus.cic.core.app.admin.controller.AdminUIController;
-import eus.cic.core.app.admin.controller.building.AdminBuildingControllerAC;
 import eus.cic.core.app.admin.controller.menu.AdminMenuController;
 import eus.cic.core.app.admin.controller.menu.AdminMenuControllerAC;
 import eus.cic.core.app.uicomponents.components.MDButton;
 
 public class AdminMenuUI extends JPanel {
+
+	private static final long serialVersionUID = -1579628318897030397L;
 
 	private static final Color BG_COLOR = Color.white;
 
@@ -112,14 +106,5 @@ public class AdminMenuUI extends JPanel {
 		return constraints;
 	}
 
-	private Component createButton(String name, ActionListener controller, Color color) {
-		JButton boton = new JButton(name);
-		boton.addActionListener(controller);
-		boton.setActionCommand(name);
-		boton.setBackground(color);
-		boton.setFocusable(false);
-		boton.setPreferredSize(new Dimension(150, 150));
-		return boton;
-	}
 
 }
