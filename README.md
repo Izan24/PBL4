@@ -1,6 +1,6 @@
 # Clock-In Control
 
-BChef is a visual aplication ...
+CIC is a visual aplication ...
 
 ## Rest API project
 
